@@ -1,10 +1,13 @@
+import { Header, Wrapper } from "../../components";
+import Presentation from "./sections/presentation/Presentation";
+import { Projects } from "./sections/projects";
+
 export function Home(): React.ReactElement {
     return (
-        <div>
-            <h1>
-                Diogo <br /> Matias
-            </h1>
-            <p>FullTack Developer</p>
-        </div>
+        <Wrapper>
+            <Header />
+            <Presentation />
+            <Projects />
+        </Wrapper>
     );
 }
