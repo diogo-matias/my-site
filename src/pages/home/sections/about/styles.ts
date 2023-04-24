@@ -5,17 +5,14 @@ export function createStyle(theme?: Theme): {
 } {
   return {
     container: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
+      height: "100vh",
       paddingTop: "10vh",
       paddingInline: "5vw",
+      //   backgroundColor: "red",
     },
     titleSpan: {
       color: theme?.palette.primary.main,
     },
-    titleContainer: {
-      marginBottom: "4vh",
-    },
+    titleContainer: {},
   };
 }
