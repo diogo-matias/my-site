@@ -4,11 +4,10 @@ Command: npx gltfjsx@6.1.4 public/dog.glb
 */
 
 import { useGLTF } from '@react-three/drei'
-import { useFrame } from '@react-three/fiber'
 
 export function DogModel(props) {
 
-  const { nodes, materials } = useGLTF('/dog.glb')
+  const { nodes, materials } = useGLTF('/glb/dog.glb')
 
   return (
     <group {...props} dispose={null} >

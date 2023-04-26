@@ -19,6 +19,7 @@
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@types/three": "^0.150.1",
+    "maath": "^0.5.3",
     "react": "^18.2.0",
     "react-backdrop-filter": "^2.1.0",
     "react-dom": "^18.2.0",
