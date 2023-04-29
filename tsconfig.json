@@ -1,13 +1,6 @@
 {
 
   "compilerOptions": {
-    "baseUrl": "./src",
-    "paths": {
-      "components/*": ["components/*"],
-      "@constants/*" : ["constants/*"],
-      "@hooks/*": ["hooks/*"],
-      "@store/*": ["store/*"],
-    },
     "target": "ES5",
     "lib": [
       "dom",
@@ -15,7 +8,6 @@
       "esnext"
     ],
     "allowJs": true,
-   
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -27,9 +19,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@constants/*" : ["./src/constants/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@store/*": ["./src/store/*"],
+    },
   },
   "include": [
-    "src/*"
+    "src"
   ]
 }
