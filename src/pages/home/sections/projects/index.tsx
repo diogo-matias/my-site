@@ -1,7 +1,8 @@
 import { Grid, Typography, useTheme } from "@mui/material";
-import { Card } from "../../../../components/card";
-import { CardPropsType } from "../../../../components/card/types";
+import { Card } from "@components";
+import { CardPropsType } from "components/card/types";
 import { createStyle } from "./styles";
+import { SECTIONS } from "@constants/sections";
 
 export function Projects(): React.ReactElement {
     const theme = useTheme();
@@ -73,7 +74,7 @@ export function Projects(): React.ReactElement {
     }
 
     return (
-        <div style={styles.container} id="projectsContainer">
+        <div style={styles.container} id={SECTIONS.PROJECTS}>
             {renderTitle()}
             {renderCards()}
         </div>

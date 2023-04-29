@@ -2,6 +2,7 @@ import { Grid, Paper, Typography, useTheme } from "@mui/material";
 import { ExperienceCard } from "../../../../components";
 import { Earth3d } from "../../../../components/threejs/earth";
 import { createStyle } from "./styles";
+import { SECTIONS } from "@constants/sections";
 
 export function About(): React.ReactElement {
     const theme = useTheme();
@@ -62,7 +63,7 @@ export function About(): React.ReactElement {
     }
 
     return (
-        <div style={styles.container}>
+        <div style={styles.container} id={SECTIONS.ABOUT}>
             <Grid container>
                 <Grid item xs={6}>
                     {renderTitle()}

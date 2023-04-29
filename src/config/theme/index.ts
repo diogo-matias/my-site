@@ -1,4 +1,4 @@
-import { createTheme, useTheme, useThemeProps } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 import { green, grey } from "@mui/material/colors";
 
 const common = createTheme({
@@ -35,7 +35,6 @@ export const themeConfig = {
                 dark: green[900],
             },
             background: {
-                default: "#000000",
                 paper: grey[900],
             },
         },

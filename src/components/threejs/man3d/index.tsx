@@ -1,6 +1,5 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { DogModel } from "../../../models";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { styles } from "./styles";
 import * as THREE from "three";
@@ -31,17 +30,11 @@ function CustomOrbitControls() {
 
 export function Man3d() {
     const theme = useTheme();
-    const ref = useRef<any>();
 
     function renderProgress() {
         return (
             <div style={styles.loadingContainer}>
-                <CircularProgress
-                    sx={{ backgroundColor: "red" }}
-                    disableShrink
-                    size={100}
-                    color="primary"
-                />
+                <CircularProgress disableShrink size={"10vw"} color="primary" />
             </div>
         );
     }

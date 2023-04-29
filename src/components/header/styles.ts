@@ -43,5 +43,8 @@ export function createStyle(theme?: Theme): {
             // backgroundColor: "red",
             paddingRight: "1%",
         },
+        span: {
+            fontWeight: 400,
+        },
     };
 }

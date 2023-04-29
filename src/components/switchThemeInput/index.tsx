@@ -55,12 +55,12 @@ export function SwitchThemeInput() {
     const theme = useTheme();
     const dispatch = useAppDispatch();
 
-    const isLightTheme = theme.palette.mode === "light";
-    const [isChecked, setIsChecked] = useState<boolean>(isLightTheme);
+    const isDarkTheme = theme.palette.mode === "dark";
+    const [isChecked, setIsChecked] = useState<boolean>(isDarkTheme);
 
     useEffect(() => {
-        setIsChecked(isLightTheme);
-    }, [isLightTheme]);
+        setIsChecked(isDarkTheme);
+    }, [isDarkTheme]);
 
     function handleChange() {
         dispatch(toggleThemeMode());

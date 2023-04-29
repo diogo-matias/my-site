@@ -1,9 +1,13 @@
 import { Button, Typography, useTheme } from "@mui/material";
 import React from "react";
-import { Dog3D, MyButton } from "@components";
+
+import { Man3d, MyButton } from "@components";
+
 import { useAppDispatch } from "@hooks/redux";
 import { toggleThemeMode } from "@store/modules/theme";
 import { createStyle } from "./styles";
+import { SECTIONS } from "@constants/sections";
+import { scrollTo } from "@hooks/scroll";
 
 export default function Presentation(): React.ReactElement {
     const dispatch = useAppDispatch();
@@ -11,9 +15,7 @@ export default function Presentation(): React.ReactElement {
     const styles = createStyle(theme);
 
     function handleClick() {
-        document.getElementById("projectsContainer")?.scrollIntoView({
-            behavior: "smooth",
-        });
+        scrollTo(SECTIONS.PROJECTS);
     }
 
     function renderButtons() {
@@ -41,11 +43,11 @@ export default function Presentation(): React.ReactElement {
     }
 
     function render3d() {
-        return <Dog3D />;
+        return <Man3d />;
     }
 
     return (
-        <div style={styles.container}>
+        <div style={styles.container} id={SECTIONS.PRESENTATION}>
             {renderTitle()}
             {render3d()}
         </div>
