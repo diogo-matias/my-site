@@ -1,10 +1,11 @@
-import { Typography, useTheme } from "@mui/material";
-import { styles } from "./styles";
+import { Grid, Typography, useTheme } from "@mui/material";
+import { hexToRGBA } from "../../utils/colors";
+import { SwitchThemeInput } from "../switchThemeInput";
+import { createStyle } from "./styles";
 
 export function Header() {
-    const { palette } = useTheme();
-    // const backgroundColor = palette.primary.dark;
-    const backgroundColor = "";
+    const theme = useTheme();
+    const styles = createStyle(theme);
 
     const links = [
         {
@@ -13,13 +14,24 @@ export function Header() {
         {
             label: "Projects",
         },
+        {
+            label: "Technologies",
+        },
     ];
 
     return (
-        <div style={{ ...styles.container, backgroundColor }}>
-            {links.map((link) => {
-                return <Typography sx={styles.links}>{link.label}</Typography>;
-            })}
-        </div>
+        <Grid container sx={styles.container}>
+            <Grid item xs={4} />
+            <Grid item xs={4} sx={{ ...styles.linkContainer }}>
+                {links.map((link) => {
+                    return (
+                        <Typography sx={styles.links}>{link.label}</Typography>
+                    );
+                })}
+            </Grid>
+            <Grid item xs={4} sx={styles.buttonsContainer}>
+                <SwitchThemeInput />
+            </Grid>
+        </Grid>
     );
 }

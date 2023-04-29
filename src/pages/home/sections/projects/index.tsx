@@ -73,7 +73,7 @@ export function Projects(): React.ReactElement {
     }
 
     return (
-        <div style={styles.container}>
+        <div style={styles.container} id="projectsContainer">
             {renderTitle()}
             {renderCards()}
         </div>

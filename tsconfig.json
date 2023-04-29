@@ -1,12 +1,21 @@
 {
+
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "@constants/*" : ["constants/*"],
+      "@hooks/*": ["hooks/*"],
+      "@store/*": ["store/*"],
+    },
+    "target": "ES5",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
     "allowJs": true,
+   
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -21,6 +30,6 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src/*"
   ]
 }

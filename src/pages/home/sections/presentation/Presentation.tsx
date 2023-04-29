@@ -1,9 +1,8 @@
 import { Button, Typography, useTheme } from "@mui/material";
 import React from "react";
-import { Dog3D } from "../../../../components";
-import { MyButton } from "../../../../components/MyButton";
-import { useAppDispatch } from "../../../../hooks/redux";
-import { toggleThemeMode } from "../../../../store/modules/theme";
+import { Dog3D, MyButton } from "@components";
+import { useAppDispatch } from "@hooks/redux";
+import { toggleThemeMode } from "@store/modules/theme";
 import { createStyle } from "./styles";
 
 export default function Presentation(): React.ReactElement {
@@ -12,7 +11,9 @@ export default function Presentation(): React.ReactElement {
     const styles = createStyle(theme);
 
     function handleClick() {
-        dispatch(toggleThemeMode());
+        document.getElementById("projectsContainer")?.scrollIntoView({
+            behavior: "smooth",
+        });
     }
 
     function renderButtons() {
@@ -28,10 +29,10 @@ export default function Presentation(): React.ReactElement {
     function renderTitle() {
         return (
             <div style={styles.titleContainer}>
-                <Typography style={styles.title} variant="h1" fontWeight={600}>
+                <Typography style={styles.title} variant="h2" fontWeight={600}>
                     Hi there, i'm <span style={styles.titleSpan}>Diogo</span>
                 </Typography>
-                <Typography variant="h4" fontWeight={100}>
+                <Typography variant="h5" fontWeight={100}>
                     Fullstack Developer based in Brazil
                 </Typography>
                 {renderButtons()}

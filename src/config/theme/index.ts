@@ -5,6 +5,12 @@ const common = createTheme({
     typography: {
         fontFamily: ["Poppins", "Sora", "sans-serif"].join(","),
         fontWeightRegular: "200",
+        h1: {
+            letterSpacing: -3,
+        },
+        h2: {
+            letterSpacing: -3,
+        },
     },
 });
 
@@ -26,6 +32,11 @@ export const themeConfig = {
             primary: {
                 main: green[500],
                 light: green[300],
+                dark: green[900],
+            },
+            background: {
+                default: "#000000",
+                paper: grey[900],
             },
         },
     }),

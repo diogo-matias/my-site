@@ -11,13 +11,13 @@ export function About(): React.ReactElement {
         {
             name: "Growdev",
             description: `Lorem ipsum dolor, sipisicing elit. Reiciendis, neque rerum aut commodi mollitia cum dio! Temporibus, sint?`,
-            link: "",
+            link: "https://growdev.com.br",
             logoUrl: "/images/growdev.png",
         },
         {
             name: "Arezzo",
             description: `Lorem ipsum dolor, sipisicing elit. Reiciendis, neque rerum aut commodi mollitia cum dio! Temporibus, sint?`,
-            link: "",
+            link: "https://arezzo.com.br",
             logoUrl: "/images/arezzo.png",
         },
     ];
@@ -68,7 +68,7 @@ export function About(): React.ReactElement {
                     {renderTitle()}
                     {renderCards()}
                 </Grid>
-                <Grid xs={6}>{render3dModel()}</Grid>
+                {/* <Grid xs={6}>{render3dModel()}</Grid> */}
             </Grid>
         </div>
     );

@@ -11,17 +11,18 @@
     "@react-three/drei": "^9.65.3",
     "@react-three/fiber": "^8.12.1",
     "@reduxjs/toolkit": "^1.9.5",
+    "@splinetool/loader": "^0.9.310",
+    "@splinetool/r3f-spline": "^1.0.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.23",
-    "@types/react": "^18.0.37",
-    "@types/react-dom": "^18.0.11",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^18.16.2",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.1",
     "@types/three": "^0.150.1",
     "maath": "^0.5.3",
     "react": "^18.2.0",
-    "react-backdrop-filter": "^2.1.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
@@ -54,5 +55,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tsconfig-paths": "^4.2.0"
   }
 }

@@ -9,9 +9,5 @@ export function Wrapper(
 ) {
     const { children, style } = props;
 
-    return (
-        <div style={{ ...styles.wrapper, ...style }} {...props}>
-            {children}
-        </div>
-    );
+    return <div style={{ ...styles.wrapper, ...style }}>{children}</div>;
 }
