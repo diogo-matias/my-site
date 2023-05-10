@@ -6,6 +6,6 @@ export const styles: { [key: string]: React.CSSProperties } = {
         marginRight: "auto",
         left: 0,
         right: 0,
-        // backgroundColor: "red",
+        // backgroundColor: "blue",
     },
 };

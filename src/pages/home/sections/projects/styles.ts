@@ -7,7 +7,6 @@ export function createStyle(theme?: Theme): {
         container: {
             display: "flex",
             flexDirection: "column",
-            alignItems: "center",
             paddingTop: "10vh",
             paddingInline: "5vw",
         },
@@ -15,6 +14,8 @@ export function createStyle(theme?: Theme): {
             color: theme?.palette.primary.main,
         },
         titleContainer: {
+            display: "flex",
+            justifyContent: "center",
             marginBottom: "4vh",
         },
         cardContainer: { display: "flex", justifyContent: "center" },
