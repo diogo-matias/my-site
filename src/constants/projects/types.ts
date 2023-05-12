@@ -6,4 +6,5 @@ export type CardPropsType = {
     githubLink: string;
     redirectLink?: string;
     badges: Badge[];
+    description: string;
 };

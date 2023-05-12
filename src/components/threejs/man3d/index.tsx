@@ -29,8 +29,6 @@ function CustomOrbitControls() {
 }
 
 export function Man3d() {
-    const theme = useTheme();
-
     function renderProgress() {
         return (
             <div style={styles.loadingContainer}>

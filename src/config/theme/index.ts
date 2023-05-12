@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { green, grey } from "@mui/material/colors";
+import { blue, green, grey } from "@mui/material/colors";
 
 const common = createTheme({
     typography: {
@@ -34,6 +34,7 @@ export const themeConfig = {
                 light: green[300],
                 dark: green[900],
             },
+
             background: {
                 paper: grey[900],
             },
