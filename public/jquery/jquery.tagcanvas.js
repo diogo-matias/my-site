@@ -3023,7 +3023,7 @@
         outlineRadius: 0,
         textColour: "#ff99ff",
         textHeight: 15,
-        textFont: "Poppins, Helvetica, Sans-serif",
+        textFont: "Poppins, Helvetica, Arial, sans-serif",
         shadow: "#5e5e5e",
         shadowBlur: 0,
         shadowOffset: [0, 0],
