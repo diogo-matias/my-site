@@ -15,9 +15,17 @@ export function createStyle(theme?: Theme): {
         },
         titleContainer: {
             display: "flex",
-            justifyContent: "center",
-            marginBottom: "4vh",
+            justifyContent: "start",
+            alignItems: "center",
+            marginBottom: "5vh",
         },
         cardContainer: { display: "flex", justifyContent: "center" },
+        divider: {
+            height: 2,
+            flex: 1,
+            backgroundColor: theme?.palette.divider,
+            marginLeft: "5%",
+            borderRadius: 10,
+        },
     };
 }

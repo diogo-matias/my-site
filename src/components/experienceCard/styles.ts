@@ -8,11 +8,12 @@ export function createStyle(theme?: Theme): {
         paper: {
             width: "100%",
             aspectRatio: "1/1",
+            flexDirection: "column",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             overflow: "hidden",
-            padding: 4,
+            padding: "20%",
             borderRadius: 5,
             cursor: "pointer",
         },
@@ -24,7 +25,7 @@ export function createStyle(theme?: Theme): {
                     : "brightness(100) saturate(0%)",
         },
         cardTitle: {
-            marginBottom: 10,
+            marginBottom: "2%",
         },
     };
 }

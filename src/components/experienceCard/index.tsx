@@ -17,25 +17,37 @@ export function ExperienceCard(
 
     return (
         <Grid item container style={styles.container}>
-            <Grid item xs={4}>
+            <Grid item xs={5} sm={3} md={4}>
                 <div onClick={handleClick}>
-                    <Paper elevation={5} sx={styles.paper}>
+                    <Paper
+                        elevation={5}
+                        sx={[
+                            styles.paper,
+                            {
+                                display: {
+                                    xs: "none",
+                                    sm: "flex",
+                                },
+                            },
+                        ]}
+                    >
                         <img src={logoUrl} style={styles.logo} />
                     </Paper>
                 </div>
             </Grid>
             <Grid
                 item
-                xs={8}
-                style={{
-                    paddingLeft: 15,
+                xs={12}
+                sm={7}
+                md={8}
+                sx={{
+                    paddingLeft: {
+                        xs: 0,
+                        sm: 2,
+                    },
                 }}
             >
-                <Typography
-                    variant="h5"
-                    fontWeight={500}
-                    style={styles.cardTitle}
-                >
+                <Typography variant="h5" fontWeight={500} sx={styles.cardTitle}>
                     {name}
                 </Typography>
                 <Typography>{description}</Typography>

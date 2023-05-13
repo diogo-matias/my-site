@@ -133,7 +133,7 @@ export function ProjectCard() {
                             <Typography color="primary">
                                 Featured project
                             </Typography>
-                            <Typography variant="h4" fontWeight={600}>
+                            <Typography variant="h5" fontWeight={600}>
                                 {item.title}
                             </Typography>
                         </div>
@@ -228,7 +228,7 @@ export function ProjectCard() {
                             gap: "5%",
                         }}
                     >
-                        <Typography variant="h4" fontWeight={600}>
+                        <Typography variant="h5" fontWeight={600}>
                             {item.title}
                         </Typography>
                         <Typography>{description}</Typography>

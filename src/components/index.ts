@@ -4,3 +4,4 @@ export { Wrapper } from "./wrapper";
 export { ExperienceCard } from "./experienceCard";
 export { MyButton } from "./myButton";
 export { ProjectCard } from "./projectCard";
+export { TechCanvas as TagCanvas } from "./tagCanvas";

@@ -12,7 +12,6 @@ export function Earth3d() {
     return (
         <Suspense fallback={false}>
             <Canvas>
-                <ManCoding3d />
                 <OrbitControls
                     autoRotate
                     enableZoom={false}

@@ -9,7 +9,7 @@ export function createStyle(theme: Theme): {
         container: {
             boxSizing: "content-box",
             overflow: "hidden",
-            backgroundImage: `linear-gradient(${background} 10%, rgba(0,0,0,0) 30%, ${background} 83%`,
+            backgroundImage: `linear-gradient(${background} 20%, rgba(0,0,0,0) 40%, ${background} 90%`,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",

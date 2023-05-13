@@ -10,9 +10,10 @@ export function Projects(): React.ReactElement {
     function renderTitle() {
         return (
             <Grid container sx={styles.titleContainer}>
-                <Typography variant="h2" fontWeight={600}>
-                    My <span style={styles.titleSpan}>Projects</span>
+                <Typography variant="h3" fontWeight={600}>
+                    Some <span style={styles.titleSpan}>projects</span>{" "}
                 </Typography>
+                <div style={styles.divider} />
             </Grid>
         );
     }

@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { blue, green, grey } from "@mui/material/colors";
+import { green, grey } from "@mui/material/colors";
 
 const common = createTheme({
     typography: {
@@ -9,6 +9,9 @@ const common = createTheme({
             letterSpacing: -3,
         },
         h2: {
+            letterSpacing: -3,
+        },
+        h3: {
             letterSpacing: -3,
         },
     },

@@ -1,34 +1,24 @@
-import { Grid, Paper, Typography, useTheme } from "@mui/material";
-import { ExperienceCard } from "../../../../components";
-import { Earth3d } from "../../../../components/threejs/earth";
+import { Button, Grid, Paper, Typography, useTheme } from "@mui/material";
+import { ExperienceCard, MyButton, TagCanvas } from "@components";
 import { createStyle } from "./styles";
 import { SECTIONS } from "@constants/sections";
+import { useCallback, useEffect, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { COMPANIES } from "@constants/companies";
 
 export function About(): React.ReactElement {
     const theme = useTheme();
     const styles = createStyle(theme);
 
-    const companies = [
-        {
-            name: "Growdev",
-            description: `Lorem ipsum dolor, sipisicing elit. Reiciendis, neque rerum aut commodi mollitia cum dio! Temporibus, sint?`,
-            link: "https://growdev.com.br",
-            logoUrl: "/images/growdev.png",
-        },
-        {
-            name: "Arezzo",
-            description: `Lorem ipsum dolor, sipisicing elit. Reiciendis, neque rerum aut commodi mollitia cum dio! Temporibus, sint?`,
-            link: "https://arezzo.com.br",
-            logoUrl: "/images/arezzo.png",
-        },
-    ];
-
     function renderTitle() {
         return (
             <Grid item xs={12}>
-                <Typography sx={styles.title} variant="h2" fontWeight={600}>
-                    <span style={styles.titleSpan}>About</span> me
-                </Typography>
+                <div style={styles.titleContainer}>
+                    <Typography variant="h3" fontWeight={600}>
+                        <span style={styles.titleSpan}>About</span> me
+                    </Typography>
+                    <div style={styles.divider} />
+                </div>
                 <Typography fontWeight={200}>
                     Sou desenvolvedor web fullstack localizado no Brasil.
                     Apaixonado por programação e lógica. Amo desafios e gosto de
@@ -44,7 +34,7 @@ export function About(): React.ReactElement {
     function renderCards() {
         return (
             <div style={styles.cardsContainer}>
-                {companies.map((item) => {
+                {COMPANIES.map((item) => {
                     return (
                         <ExperienceCard
                             name={item.name}
@@ -58,18 +48,16 @@ export function About(): React.ReactElement {
         );
     }
 
-    function render3dModel() {
-        return <Earth3d />;
-    }
-
     return (
         <div style={styles.container} id={SECTIONS.ABOUT}>
             <Grid container>
-                <Grid item xs={6}>
+                <Grid item xs={12} md={6}>
                     {renderTitle()}
                     {renderCards()}
                 </Grid>
-                {/* <Grid xs={6}>{render3dModel()}</Grid> */}
+                <Grid item xs={12} md={6} style={styles.tagsContainer}>
+                    <TagCanvas />
+                </Grid>
             </Grid>
         </div>
     );

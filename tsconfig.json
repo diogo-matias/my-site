@@ -30,6 +30,6 @@
    
   },
   "include": [
-    "src",
+    "src", "public/jquery/jquery.tagcanvas.js",
   ]
 }

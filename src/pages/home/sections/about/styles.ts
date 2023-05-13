@@ -8,7 +8,11 @@ export function createStyle(theme?: Theme): {
             height: "100vh",
             paddingTop: "10vh",
             paddingInline: "5vw",
-            // backgroundColor: "red",
+        },
+        titleContainer: {
+            display: "flex",
+            alignItems: "center",
+            marginBottom: "5%",
         },
         title: {
             marginBottom: 5,
@@ -17,18 +21,8 @@ export function createStyle(theme?: Theme): {
             color: theme?.palette.primary.main,
         },
         experienceTitle: {
-            marginTop: 5,
-            marginBottom: 5,
-        },
-        paper: {
-            width: "100%",
-            aspectRatio: "1/1",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            overflow: "hidden",
-            padding: 4,
-            borderRadius: 5,
+            marginTop: "5%",
+            marginBottom: "5%",
         },
         logo: {
             width: "100%",
@@ -38,8 +32,18 @@ export function createStyle(theme?: Theme): {
                     : "brightness(100) saturate(0%)",
         },
         cardsContainer: { display: "flex", gap: 20, flexDirection: "column" },
-        cardTitle: {
-            marginBottom: 10,
+
+        tagsContainer: {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+        },
+        divider: {
+            height: 2,
+            flex: 1,
+            backgroundColor: theme?.palette.divider,
+            marginLeft: "5%",
+            borderRadius: 10,
         },
     };
 }

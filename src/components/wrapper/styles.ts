@@ -4,8 +4,8 @@ export const styles: { [key: string]: React.CSSProperties } = {
         position: "relative",
         marginLeft: "auto",
         marginRight: "auto",
+        marginBottom: "10vh",
         left: 0,
         right: 0,
-        // backgroundColor: "blue",
     },
 };

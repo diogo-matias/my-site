@@ -10,7 +10,6 @@ import { SECTIONS } from "@constants/sections";
 import { scrollTo } from "@hooks/scroll";
 
 export default function Presentation(): React.ReactElement {
-    const dispatch = useAppDispatch();
     const theme = useTheme();
     const styles = createStyle(theme);
 

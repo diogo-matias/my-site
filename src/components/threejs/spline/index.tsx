@@ -18,7 +18,7 @@ export function ManCoding3d({ ...props }) {
         <>
             {/* <color attach="background" args={[color]} />
             <fog attach="fog" args={[color, 1152.44, 2000]} /> */}
-            <group {...props} dispose={null} position={[-100, 0, 0]}>
+            <group {...props} dispose={null} position={[-100, -100, 0]}>
                 <pointLight
                     name="Point Light"
                     castShadow
