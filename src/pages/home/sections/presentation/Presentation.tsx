@@ -1,7 +1,8 @@
 import { Button, Typography, useTheme } from "@mui/material";
 import React from "react";
 
-import { Man3d, MyButton } from "@components";
+import { Man3d } from "@components";
+import { MyButton } from "components/myButton";
 
 import { useAppDispatch } from "@hooks/redux";
 import { toggleThemeMode } from "@store/modules/theme";

@@ -1,9 +1,8 @@
-import { Button, Grid, Paper, Typography, useTheme } from "@mui/material";
-import { ExperienceCard, MyButton, TagCanvas } from "@components";
+import { Grid, Paper, Typography, useTheme } from "@mui/material";
+import { ExperienceCard, TechCanvas } from "@components";
+import { MyButton } from "components/myButton";
 import { createStyle } from "./styles";
 import { SECTIONS } from "@constants/sections";
-import { useCallback, useEffect, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
 import { COMPANIES } from "@constants/companies";
 
 export function About(): React.ReactElement {
@@ -56,7 +55,7 @@ export function About(): React.ReactElement {
                     {renderCards()}
                 </Grid>
                 <Grid item xs={12} md={6} style={styles.tagsContainer}>
-                    <TagCanvas />
+                    <TechCanvas />
                 </Grid>
             </Grid>
         </div>
