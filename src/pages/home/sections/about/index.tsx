@@ -1,6 +1,6 @@
 import { Grid, Paper, Typography, useTheme } from "@mui/material";
 import { ExperienceCard, TechCanvas } from "@components";
-import { MyButton } from "components/temp";
+import { MyButton } from "components/myButton";
 import { createStyle } from "./styles";
 import { SECTIONS } from "@constants/sections";
 import { COMPANIES } from "@constants/companies";

@@ -8,7 +8,7 @@ import { CARDS_INFO } from "@constants/projects";
 import { CardPropsType } from "@constants/projects/types";
 import { GITHUB } from "@constants/github";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import { MyButton } from "components/temp";
+import { MyButton } from "components/myButton";
 
 export function ProjectCard() {
     const data = CARDS_INFO;
