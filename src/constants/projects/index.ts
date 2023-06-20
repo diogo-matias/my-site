@@ -4,37 +4,44 @@ import { CardPropsType } from "./types";
 
 export const CARDS_INFO: CardPropsType[] = [
     {
-        imageUrl:
-            "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f994eb88114647.5dcc606cd9bda.png",
-        redirectLink: "https://www.youtube.com",
-        title: "Sistema de Recados",
-        githubLink: "https://github.com",
+        imageUrl: "/images/bible-project.png",
+        redirectLink: "https://bible-diogo-matias.vercel.app/",
+        title: "Bible.com",
+        githubLink: "https://github.com/diogo-matias/bible",
         description:
-            "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga illum neque officia, optio, sequi expedita ipsa aperiam labore officiis natus blanditiis quasi ab modi repellendus minima possimus, adipisci dolore ipsam!",
+            "A Bible project created with react native, where you can read the bible in multiple languages",
         badges: [
             {
-                logo: "javascript",
-                text: "JAVASCRIPT",
+                logo: "Typescript",
+                text: "Typescript",
             },
             {
-                logo: "jest",
-                text: "Jest",
+                logo: "REDUX",
+                text: "REDUX",
             },
             {
-                logo: "redux",
-                text: "Redux",
+                logo: "styled-components",
+                text: "Styled components",
             },
             {
-                logo: "instagram",
-                text: "insta",
+                logo: "mui",
+                text: "Material UI",
             },
             {
-                logo: "instagram",
-                text: "insta",
+                logo: "React",
+                text: "React JS",
             },
             {
-                logo: "instagram",
-                text: "insta",
+                logo: "reactrouter",
+                text: "Router dom",
+            },
+            {
+                logo: "axios",
+                text: "AXIOS",
+            },
+            {
+                logo: "vercel",
+                text: "vercel",
             },
         ],
     },

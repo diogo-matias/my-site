@@ -31,7 +31,6 @@ export function TechCanvas() {
                 "tags"
             )
         ) {
-            // something went wrong, hide the canvas container
             $("#myCanvasContainer").hide();
         }
     });
@@ -52,11 +51,12 @@ export function TechCanvas() {
         <div className="skills-ch0arts">
             <div id="myCanvasContainer">
                 <canvas
-                    width={width}
+                    width={width / 2}
                     height={600}
                     id="myCanvas"
                     style={{
                         aspectRatio: "1/1",
+                        // backgroundColor: "red",
                     }}
                 >
                     <ul id="tags">

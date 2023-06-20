@@ -1,6 +1,5 @@
 import { Breakpoint, Button, Icon, Typography, useTheme } from "@mui/material";
 import { Badge } from "./types";
-import { useEffect, useState } from "react";
 import useWindowDimensions from "@hooks/windowDimentions";
 import { RGBAToHex, getRandomColor, hexToRGBA } from "utils/colors";
 import { CustomCard, CustomImg } from "./styles";
