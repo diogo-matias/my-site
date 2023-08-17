@@ -1,13 +1,20 @@
 import { Grid, Typography, useTheme } from "@mui/material";
-import { hexToRGBA } from "../../utils/colors";
 import { SwitchThemeInput } from "../switchThemeInput";
 import { createStyle } from "./styles";
 import { SECTIONS } from "@constants/sections";
 import { scrollTo } from "@hooks/scroll";
+import useWindowDimensions from "@hooks/windowDimentions";
+import { FaBars } from "react-icons/fa";
+import { MobileMenuModal } from "components/modals/mobileMenuModal";
+import { useState } from "react";
 
 export function Header() {
+    const { width } = useWindowDimensions();
+
     const theme = useTheme();
     const styles = createStyle(theme);
+
+    const [openMobileModal, setOpenMobileModal] = useState(false);
 
     const links = [
         {
@@ -19,46 +26,78 @@ export function Header() {
             scrollTo: SECTIONS.PROJECTS,
         },
         {
-            label: "Presentation",
-            scrollTo: SECTIONS.PRESENTATION,
-        },
-        {
-            label: "Testing",
-            scrollTo: SECTIONS.ABOUT,
+            label: "Contact",
+            scrollTo: SECTIONS.PROJECTS,
         },
     ];
+
+    function handleMobileModalClose() {
+        setOpenMobileModal(false);
+    }
 
     function handleNavigation(elementId: string) {
         scrollTo(elementId);
     }
 
+    function renderButtons() {
+        const breakpoint = width < theme.breakpoints.values.sm;
+
+        if (!breakpoint) {
+            return links.map((link) => {
+                return (
+                    <Typography sx={styles.links}>
+                        <div onClick={() => handleNavigation(link.scrollTo)}>
+                            {link.label}
+                        </div>
+                    </Typography>
+                );
+            });
+        }
+    }
+
+    function renderMobileOrDesktopButton() {
+        const breakpoint = width < theme.breakpoints.values.sm;
+
+        if (breakpoint) {
+            return (
+                <div
+                    style={styles.mobileButtonContainer}
+                    onClick={() => setOpenMobileModal(true)}
+                >
+                    <FaBars size={25} />
+                </div>
+            );
+        }
+
+        return <SwitchThemeInput />;
+    }
+
     return (
-        <Grid container sx={styles.container}>
-            <Grid item xs={4}>
-                <Typography sx={styles.links}>
-                    <div
-                        onClick={() => handleNavigation(SECTIONS.PRESENTATION)}
-                    >
-                        Diogo <span style={styles.span}>Macedo</span>
-                    </div>
-                </Typography>
+        <div>
+            <MobileMenuModal
+                links={links}
+                onClose={handleMobileModalClose}
+                open={openMobileModal}
+            />
+            <Grid container sx={styles.container}>
+                <Grid item xs={8} sm={4}>
+                    <Typography sx={styles.links}>
+                        <div
+                            onClick={() =>
+                                handleNavigation(SECTIONS.PRESENTATION)
+                            }
+                        >
+                            Diogo <span style={styles.span}>Macedo</span>
+                        </div>
+                    </Typography>
+                </Grid>
+                <Grid item xs={0} sm={4} sx={{ ...styles.linkContainer }}>
+                    {renderButtons()}
+                </Grid>
+                <Grid item xs={4} sm={4} sx={styles.buttonsContainer}>
+                    {renderMobileOrDesktopButton()}
+                </Grid>
             </Grid>
-            <Grid item xs={4} sx={{ ...styles.linkContainer }}>
-                {links.map((link) => {
-                    return (
-                        <Typography sx={styles.links}>
-                            <div
-                                onClick={() => handleNavigation(link.scrollTo)}
-                            >
-                                {link.label}
-                            </div>
-                        </Typography>
-                    );
-                })}
-            </Grid>
-            <Grid item xs={4} sx={styles.buttonsContainer}>
-                <SwitchThemeInput />
-            </Grid>
-        </Grid>
+        </div>
     );
 }

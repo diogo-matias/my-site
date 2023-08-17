@@ -1,5 +1,6 @@
 import { styled, Switch, Theme } from "@mui/material";
 import { hexToRGBA } from "../../utils/colors";
+import { red } from "@mui/material/colors";
 
 export function createStyle(theme?: Theme): {
     [key: string]: React.CSSProperties;
@@ -13,7 +14,7 @@ export function createStyle(theme?: Theme): {
             alignItems: "center",
             maxWidth: "1280px",
             height: 50,
-            top: "2vh",
+            top: "3vh",
             left: 0,
             right: 0,
             marginLeft: "auto",
@@ -40,11 +41,23 @@ export function createStyle(theme?: Theme): {
         buttonsContainer: {
             display: "flex",
             justifyContent: "flex-end",
-            // backgroundColor: "red",
             paddingRight: "1%",
         },
         span: {
             fontWeight: 400,
         },
+        mobileButtonContainer: {
+            paddingRight: 20,
+            display: "flex",
+            alignItems: "center",
+            cursor: "pointer",
+        },
     };
 }
+
+export const Root = styled("div")(({ theme }) => ({
+    padding: theme.spacing(1),
+    [theme.breakpoints.down("md")]: {
+        backgroundColor: red[500],
+    },
+}));

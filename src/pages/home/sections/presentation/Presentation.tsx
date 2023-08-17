@@ -4,15 +4,16 @@ import React from "react";
 import { Man3d } from "@components";
 import { MyButton } from "components/myButton";
 
-import { useAppDispatch } from "@hooks/redux";
-import { toggleThemeMode } from "@store/modules/theme";
 import { createStyle } from "./styles";
 import { SECTIONS } from "@constants/sections";
 import { scrollTo } from "@hooks/scroll";
+import useWindowDimensions from "@hooks/windowDimentions";
+import { breakpoints } from "@mui/system";
 
 export default function Presentation(): React.ReactElement {
     const theme = useTheme();
     const styles = createStyle(theme);
+    const { width } = useWindowDimensions();
 
     function handleClick() {
         scrollTo(SECTIONS.PROJECTS);
@@ -46,8 +47,15 @@ export default function Presentation(): React.ReactElement {
         return <Man3d />;
     }
 
+    function renderBlack() {
+        if (width < 475) {
+            return <div style={styles.black} />;
+        }
+    }
+
     return (
         <div style={styles.container} id={SECTIONS.PRESENTATION}>
+            {renderBlack()}
             {renderTitle()}
             {render3d()}
         </div>

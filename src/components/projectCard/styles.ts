@@ -1,11 +1,26 @@
 import { Breakpoint, useTheme } from "@mui/material";
-import useWindowDimensions from "@hooks/windowDimentions";
 import { Box, styled } from "@mui/material";
 import { hexToRGBA } from "utils/colors";
 
 export function CustomCard(pattern1?: boolean, breakpoint?: Breakpoint) {
+    let aspectRatio: string;
+
+    switch (breakpoint) {
+        case "sm":
+            aspectRatio = "1 / 1.5";
+            break;
+
+        case "md":
+            aspectRatio = "16 / 11";
+            break;
+
+        default:
+            aspectRatio = "16 / 9";
+            break;
+    }
+
     const Card = styled(Box)(({ theme }) => ({
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.background.paper,
         position: "relative",
         right: 0,
         zIndex: 1,
@@ -13,9 +28,9 @@ export function CustomCard(pattern1?: boolean, breakpoint?: Breakpoint) {
         gridColumnStart: pattern1 ? 1 : 6,
         gridRowStart: 1,
         gridRowEnd: -1,
-        maxHeight: 500,
+        maxHeight: 600,
         height: "100%",
-        aspectRatio: breakpoint === "sm" ? "1 / 1.2" : "16 / 9",
+        aspectRatio,
         borderRadius: 10,
         overflow: "hidden",
         boxShadow: `0px 0px 20px ${hexToRGBA("#000000", 0.3)}`,
@@ -35,7 +50,6 @@ export const CustomImg = styled("img")(({ theme }) => ({
         theme.palette.mode === "dark" ? "brightness(100%)" : ""
     }`,
     transition: "0.5s",
-
     "&:hover": {
         opacity: "1",
         filter: "grayscale(0)",

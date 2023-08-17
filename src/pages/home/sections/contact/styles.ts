@@ -9,6 +9,7 @@ export function createStyle(theme?: Theme): {
             flexDirection: "column",
             paddingTop: "5vh",
             paddingInline: "5vw",
+            height: "100vh",
         },
         titleSpan: {
             color: theme?.palette.primary.main,

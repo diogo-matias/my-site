@@ -1,9 +1,7 @@
 import { Grid, Typography, useTheme } from "@mui/material";
 import { createStyle } from "./styles";
-import { SECTIONS } from "@constants/sections";
-import { ProjectCard } from "@components";
 
-export function Projects(): React.ReactElement {
+export function Contact() {
     const theme = useTheme();
     const styles = createStyle(theme);
 
@@ -11,17 +9,21 @@ export function Projects(): React.ReactElement {
         return (
             <Grid container sx={styles.titleContainer}>
                 <Typography variant="h3" fontWeight={600}>
-                    Awesome <span style={styles.titleSpan}>projects</span>{" "}
+                    Contact
                 </Typography>
                 <div style={styles.divider} />
             </Grid>
         );
     }
 
+    function renderContent() {
+        return <div>sasd</div>;
+    }
+
     return (
-        <div style={styles.container} id={SECTIONS.PROJECTS}>
+        <div style={styles.container}>
             {renderTitle()}
-            <ProjectCard />
+            {renderContent()}
         </div>
     );
 }

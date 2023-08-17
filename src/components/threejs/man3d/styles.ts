@@ -1,7 +1,7 @@
 export const styles: { [key: string]: React.CSSProperties } = {
     canvas: {
         position: "absolute",
-        zIndex: "-1",
+        zIndex: "-2",
         filter: "opacity(1)",
         height: "100vh",
         overflow: "hidden",

@@ -5,7 +5,6 @@ export function createStyle(theme?: Theme): {
 } {
     return {
         container: {
-            height: "100vh",
             paddingTop: "10vh",
             paddingInline: "5vw",
         },

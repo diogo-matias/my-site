@@ -1,13 +1,13 @@
 export const COMPANIES = [
     {
         name: "Growdev",
-        description: `Lorem ipsum dolor, sipisicing elit. Reiciendis, neque rerum aut commodi mollitia cum dio! Temporibus, sint?`,
+        description: `A company dedicated to educating new developers for the job market.`,
         link: "https://growdev.com.br",
         logoUrl: "/images/growdev.png",
     },
     {
         name: "Arezzo",
-        description: `Lorem ipsum dolor, sipisicing elit. Reiciendis, neque rerum aut commodi mollitia cum dio! Temporibus, sint?`,
+        description: `The largest footwear retail brand in Latin America.`,
         link: "https://arezzo.com.br",
         logoUrl: "/images/arezzo.png",
     },
