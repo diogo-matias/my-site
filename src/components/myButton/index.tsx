@@ -1,6 +1,6 @@
-import { Button, styled } from "@mui/material";
+import { Button, ButtonProps, styled } from "@mui/material";
 
-export function MyButton(props: any) {
+export function MyButton(props: ButtonProps) {
     const { children } = props;
 
     const CustomButton = styled(Button)({

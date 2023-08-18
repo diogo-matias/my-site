@@ -1,9 +1,88 @@
-import { Grid, Typography, useTheme } from "@mui/material";
+import {
+    Button,
+    CircularProgress,
+    Grid,
+    Typography,
+    styled,
+    useTheme,
+} from "@mui/material";
 import { createStyle } from "./styles";
+
+import { useFormik } from "formik";
+import { BaseInput } from "components/baseInput";
+import { SiLinkedin, SiGithub, SiWhatsapp, SiGmail } from "react-icons/si";
+import { SOCIAL } from "@constants/social";
+import * as Yup from "yup";
+import { BaseTextarea } from "components/baseTextarea";
+import { useAppDispatch, useAppSelector } from "@hooks/redux";
+import { ContactActions } from "@store/modules/contact";
+import { FaX, FaCheck } from "react-icons/fa6";
+
+const Text = styled(Typography)(({ theme }) => ({
+    textAlign: "end",
+    [theme.breakpoints.down("md")]: {
+        display: "none",
+    },
+}));
+
+const EmailText = styled(Typography)(({ theme }) => ({
+    cursor: "pointer",
+
+    ":hover": {
+        textDecoration: "underline",
+    },
+}));
+
+const ButtonsContainer = styled(Typography)(({ theme }) => ({
+    display: "flex",
+    fontSize: 50,
+    gap: 20,
+    marginBottom: 30,
+    marginTop: 30,
+    cursor: "pointer",
+}));
+
+const LeftContainer = styled(Typography)(({ theme }) => ({
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "end",
+    paddingRight: 50,
+
+    [theme.breakpoints.down("md")]: {
+        alignItems: "start",
+        marginBottom: 30,
+    },
+}));
 
 export function Contact() {
     const theme = useTheme();
     const styles = createStyle(theme);
+    const dispatch = useAppDispatch();
+
+    const { hasError, isLoading, showSuccess } = useAppSelector(
+        (state) => state.contact
+    );
+
+    const FormikSchema = Yup.object().shape({
+        name: Yup.string().required("Required"),
+
+        email: Yup.string().email("Invalid email").required("Required"),
+        subject: Yup.string().min(5, "Too Short!").required("Required"),
+        message: Yup.string().min(5, "Too Short!").required("Required"),
+    });
+
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+        },
+        validationSchema: FormikSchema,
+        onSubmit: (values) => {
+            dispatch(ContactActions.sendMessage(values));
+        },
+    });
 
     function renderTitle() {
         return (
@@ -16,8 +95,173 @@ export function Contact() {
         );
     }
 
+    function handleNavigation(link: string) {
+        window.open(link, "_blank");
+    }
+
+    function renderLeftSide() {
+        return (
+            <LeftContainer>
+                <Text variant="h4">Feel free to shoot me a message!</Text>
+                <ButtonsContainer>
+                    <SiGithub onClick={() => handleNavigation(SOCIAL.GITHUB)} />
+                    <SiLinkedin
+                        onClick={() => handleNavigation(SOCIAL.LINKEDIN)}
+                    />
+                    <SiWhatsapp
+                        onClick={() => handleNavigation(SOCIAL.WHATSAPP.LINK)}
+                    />
+                    <SiGmail
+                        onClick={() => handleNavigation(SOCIAL.EMAIL.LINK)}
+                    />
+                </ButtonsContainer>
+                <div>
+                    <EmailText
+                        onClick={() => handleNavigation(SOCIAL.EMAIL.LINK)}
+                    >
+                        {SOCIAL.EMAIL.VALUE}
+                    </EmailText>
+                    <Typography>{SOCIAL.CELLPHONE.FORMATTED}</Typography>
+                </div>
+            </LeftContainer>
+        );
+    }
+
+    function renderRightSide() {
+        return (
+            <div>
+                <div>
+                    <Typography
+                        variant="h4"
+                        sx={{ marginBottom: 5, fontWeight: 500 }}
+                    >
+                        Send Message
+                    </Typography>
+                    <form onSubmit={formik.handleSubmit}>
+                        <div style={{ marginBottom: 25 }}>
+                            <BaseInput
+                                id="name"
+                                name="name"
+                                placeholder="Name"
+                                onChange={formik.handleChange}
+                                value={formik.values.name}
+                                errorMessage={formik.errors.name}
+                                onBlur={formik.handleBlur}
+                                hasError={formik.touched.name}
+                            />
+                        </div>
+                        <div style={{ marginBottom: 25 }}>
+                            <BaseInput
+                                id="email"
+                                name="email"
+                                placeholder="Your Email"
+                                onChange={formik.handleChange}
+                                value={formik.values.email}
+                                errorMessage={formik.errors.email}
+                                onBlur={formik.handleBlur}
+                                hasError={formik.touched.email}
+                            />
+                        </div>
+                        <div style={{ marginBottom: 25 }}>
+                            <BaseInput
+                                id="subject"
+                                name="subject"
+                                placeholder="Subject"
+                                onChange={formik.handleChange}
+                                value={formik.values.subject}
+                                errorMessage={formik.errors.subject}
+                                onBlur={formik.handleBlur}
+                                hasError={formik.touched.subject}
+                            />
+                        </div>
+                        <div style={{ marginBottom: 25 }}>
+                            <BaseTextarea
+                                rows={10}
+                                id="message"
+                                name="message"
+                                placeholder="Message"
+                                onChange={formik.handleChange}
+                                value={formik.values.message}
+                                errorMessage={formik.errors.message}
+                                onBlur={formik.handleBlur}
+                                hasError={formik.touched.message}
+                            />
+                        </div>
+                        <div
+                            style={{
+                                display: "flex",
+                                gap: 20,
+                                alignItems: "center",
+                            }}
+                        >
+                            <Button
+                                style={{ borderRadius: 25 }}
+                                variant="contained"
+                                type="submit"
+                            >
+                                Submit
+                            </Button>
+                            {renderIcon()}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        );
+    }
+
+    function renderIcon() {
+        if (showSuccess) {
+            return (
+                <div>
+                    <div
+                        style={{
+                            color: "green",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 10,
+                        }}
+                    >
+                        <FaCheck color="green" />
+                        <Typography>Message send successfully</Typography>
+                    </div>
+                </div>
+            );
+        }
+
+        if (hasError) {
+            return (
+                <div>
+                    <div
+                        style={{
+                            color: "red",
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 10,
+                        }}
+                    >
+                        <FaX color="red" />
+                        <Typography>Error to send message</Typography>
+                    </div>
+                </div>
+            );
+        }
+
+        if (isLoading) {
+            return <CircularProgress />;
+        }
+    }
+
     function renderContent() {
-        return <div>sasd</div>;
+        return (
+            <Grid container>
+                <Grid item xs={12} md={6}>
+                    {renderLeftSide()}
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    {renderRightSide()}
+                </Grid>
+            </Grid>
+        );
     }
 
     return (

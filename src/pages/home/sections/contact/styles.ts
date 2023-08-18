@@ -9,7 +9,6 @@ export function createStyle(theme?: Theme): {
             flexDirection: "column",
             paddingTop: "5vh",
             paddingInline: "5vw",
-            height: "100vh",
         },
         titleSpan: {
             color: theme?.palette.primary.main,
@@ -18,7 +17,7 @@ export function createStyle(theme?: Theme): {
             display: "flex",
             justifyContent: "start",
             alignItems: "center",
-            marginBottom: "5vh",
+            marginBottom: "8vh",
         },
         cardContainer: { display: "flex", justifyContent: "center" },
         divider: {
