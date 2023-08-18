@@ -46,9 +46,9 @@ const sendPageViewMessage = createAsyncThunk(
                 JSON.stringify({ id: crypto.randomUUID() })
             );
 
-            localStorage.setItem("userInfo", JSON.stringify(newValues));
-
             await ContactApi.sendPageViewMessage(newValues);
+
+            localStorage.setItem("userInfo", JSON.stringify(newValues));
         }
     }
 );
