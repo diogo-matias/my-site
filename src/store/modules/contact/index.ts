@@ -81,6 +81,8 @@ const ContactSlice = createSlice({
         });
         addCase(sendPageViewMessage.rejected, (state) => {
             state.hasError = true;
+
+            sessionStorage.removeItem("sessionInfo");
         });
     },
 });
