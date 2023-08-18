@@ -6,6 +6,7 @@ const initialState = {
     isLoading: false,
     hasError: false,
     showSuccess: false,
+    hasErrorPageView: false,
 };
 
 const sendMessage = createAsyncThunk(
@@ -74,10 +75,10 @@ const ContactSlice = createSlice({
             state.showSuccess = false;
         });
         addCase(sendPageViewMessage.fulfilled, (state) => {
-            state.hasError = false;
+            state.hasErrorPageView = false;
         });
         addCase(sendPageViewMessage.rejected, (state) => {
-            state.hasError = true;
+            state.hasErrorPageView = true;
 
             sessionStorage.removeItem("sessionInfo");
         });
