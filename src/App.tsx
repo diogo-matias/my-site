@@ -13,10 +13,6 @@ function App() {
 
     useEffect(() => {
         dispatch(ContactActions.sendPageViewMessage());
-    }, []);
-
-    useEffect(() => {
-        dispatch(ContactActions.sendPageViewMessage());
     }, [hasError]);
 
     return (
