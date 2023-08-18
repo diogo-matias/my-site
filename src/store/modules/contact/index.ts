@@ -65,7 +65,7 @@ const ContactSlice = createSlice({
         });
         addCase(sendMessage.pending, (state) => {
             state.hasError = false;
-            state.isLoading = false;
+            state.isLoading = true;
             state.showSuccess = false;
         });
         addCase(sendMessage.rejected, (state) => {
