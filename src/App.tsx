@@ -12,8 +12,6 @@ function App() {
 
     useEffect(() => {
         dispatch(ContactActions.sendPageViewMessage());
-
-        console.log("just for commit");
     }, []);
 
     return (
