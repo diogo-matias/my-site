@@ -7,12 +7,17 @@ import { ContactActions } from "@store/modules/contact";
 
 function App() {
     const theme = useAppSelector((state) => state.theme);
+    const { hasError } = useAppSelector((state) => state.contact);
 
     const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(ContactActions.sendPageViewMessage());
     }, []);
+
+    useEffect(() => {
+        dispatch(ContactActions.sendPageViewMessage());
+    }, [hasError]);
 
     return (
         <ThemeProvider theme={theme}>
