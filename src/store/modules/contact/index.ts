@@ -76,9 +76,6 @@ const ContactSlice = createSlice({
         addCase(sendPageViewMessage.fulfilled, (state) => {
             state.hasError = false;
         });
-        addCase(sendPageViewMessage.pending, (state) => {
-            state.hasError = false;
-        });
         addCase(sendPageViewMessage.rejected, (state) => {
             state.hasError = true;
 
