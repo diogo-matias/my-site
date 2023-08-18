@@ -49,7 +49,6 @@ const sendPageViewMessage = createAsyncThunk(
             localStorage.setItem("userInfo", JSON.stringify(newValues));
 
             await ContactApi.sendPageViewMessage(newValues);
-            await ContactApi.sendPageViewMessage(newValues);
         }
     }
 );
