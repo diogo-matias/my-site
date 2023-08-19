@@ -2,9 +2,9 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { styles } from "./styles";
-import * as THREE from "three";
 import { CircularProgress, Typography, useTheme } from "@mui/material";
 import { ManCoding3d } from "../spline";
+import { Scene } from "./faster";
 
 function CustomOrbitControls() {
     const ref = useRef<any>();
@@ -41,6 +41,7 @@ export function Man3d() {
         <Suspense fallback={renderProgress()}>
             <Canvas style={styles.canvas} shadows flat linear>
                 <ManCoding3d />
+                {/* <Scene /> */}
                 <CustomOrbitControls />
             </Canvas>
         </Suspense>
