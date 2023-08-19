@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { themeConfig } from "../../../config";
 
-const initialState = themeConfig.light;
+const initialState = themeConfig.dark;
 
 const ThemeSlice = createSlice({
     name: "@theme",
