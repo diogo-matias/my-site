@@ -28,6 +28,12 @@ export function createStyle(theme: Theme): {
         },
         buttonsContainer: {
             marginTop: 10,
+            display: "flex",
+            gap: 20,
+            fontSize: 30,
+        },
+        button: {
+            cursor: "pointer",
         },
         black: {
             backgroundColor: hexToRGBA(theme.palette.background.default, 0.6),

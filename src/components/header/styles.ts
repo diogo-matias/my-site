@@ -2,6 +2,10 @@ import { styled, Switch, Theme } from "@mui/material";
 import { hexToRGBA } from "../../utils/colors";
 import { red } from "@mui/material/colors";
 
+export const STYLES = {
+    HEADER_HEIGHT: 50,
+};
+
 export function createStyle(theme?: Theme): {
     [key: string]: React.CSSProperties;
 } {
@@ -13,7 +17,7 @@ export function createStyle(theme?: Theme): {
             display: "flex",
             alignItems: "center",
             maxWidth: "1280px",
-            height: 50,
+            height: STYLES.HEADER_HEIGHT,
             top: "3vh",
             left: 0,
             right: 0,

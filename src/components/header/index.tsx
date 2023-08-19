@@ -1,8 +1,8 @@
 import { Grid, Typography, useTheme } from "@mui/material";
 import { SwitchThemeInput } from "../switchThemeInput";
-import { createStyle } from "./styles";
+import { STYLES, createStyle } from "./styles";
 import { SECTIONS } from "@constants/sections";
-import { scrollTo } from "@hooks/scroll";
+import { scrollTo, scrollToWithPadding } from "@hooks/scroll";
 import useWindowDimensions from "@hooks/windowDimentions";
 import { FaBars } from "react-icons/fa";
 import { MobileMenuModal } from "components/modals/mobileMenuModal";
@@ -27,7 +27,7 @@ export function Header() {
         },
         {
             label: "Contact",
-            scrollTo: SECTIONS.PROJECTS,
+            scrollTo: SECTIONS.CONTACT,
         },
     ];
 
@@ -36,7 +36,23 @@ export function Header() {
     }
 
     function handleNavigation(elementId: string) {
-        scrollTo(elementId);
+        let shouldUsePadding: boolean;
+
+        switch (elementId) {
+            case SECTIONS.PROJECTS:
+                shouldUsePadding = true;
+                break;
+            case SECTIONS.CONTACT:
+                shouldUsePadding = true;
+                break;
+            default:
+                shouldUsePadding = false;
+                break;
+        }
+
+        const padding = shouldUsePadding ? STYLES.HEADER_HEIGHT : 0;
+
+        scrollToWithPadding(elementId, padding);
     }
 
     function renderButtons() {

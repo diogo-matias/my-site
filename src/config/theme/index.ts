@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { green, grey } from "@mui/material/colors";
+import { blue, green, grey, purple } from "@mui/material/colors";
 
 const common = createTheme({
     typography: {
@@ -26,6 +26,10 @@ export const themeConfig = {
                 default: grey[200],
                 paper: grey[100],
             },
+
+            text: {
+                primary: "#313131",
+            },
         },
     }),
     dark: createTheme({
@@ -33,13 +37,14 @@ export const themeConfig = {
         palette: {
             mode: "dark",
             primary: {
-                main: green[500],
-                light: green[300],
-                dark: green[900],
+                main: "#70deff",
+                light: "#54A6BF",
+                dark: "#386F80",
             },
 
             background: {
                 paper: grey[900],
+                default: "#03070a",
             },
         },
     }),

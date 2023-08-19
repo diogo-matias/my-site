@@ -17,6 +17,7 @@ import { BaseTextarea } from "components/baseTextarea";
 import { useAppDispatch, useAppSelector } from "@hooks/redux";
 import { ContactActions } from "@store/modules/contact";
 import { FaX, FaCheck } from "react-icons/fa6";
+import { SECTIONS } from "@constants/sections";
 
 const Text = styled(Typography)(({ theme }) => ({
     textAlign: "end",
@@ -265,7 +266,7 @@ export function Contact() {
     }
 
     return (
-        <div style={styles.container}>
+        <div style={styles.container} id={SECTIONS.CONTACT}>
             {renderTitle()}
             {renderContent()}
         </div>
