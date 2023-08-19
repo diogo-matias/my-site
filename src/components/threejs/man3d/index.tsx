@@ -4,7 +4,7 @@ import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { styles } from "./styles";
 import { CircularProgress, Typography, useTheme } from "@mui/material";
 import { ManCoding3d } from "../spline";
-import { Scene } from "./faster";
+import { Scene } from "../spline/faster";
 
 function CustomOrbitControls() {
     const ref = useRef<any>();
