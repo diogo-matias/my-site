@@ -36,13 +36,14 @@ export function About(): React.ReactElement {
     function renderCards() {
         return (
             <div style={styles.cardsContainer}>
-                {COMPANIES.map((item) => {
+                {COMPANIES.map((item, index) => {
                     return (
                         <ExperienceCard
                             name={item.name}
                             description={item.description}
                             link={item.link}
                             logoUrl={item.logoUrl}
+                            key={`${item.name}-${index}`}
                         />
                     );
                 })}

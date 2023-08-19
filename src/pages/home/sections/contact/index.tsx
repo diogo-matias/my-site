@@ -43,7 +43,7 @@ const ButtonsContainer = styled(Typography)(({ theme }) => ({
     cursor: "pointer",
 }));
 
-const LeftContainer = styled(Typography)(({ theme }) => ({
+const LeftContainer = styled("div")(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "end",

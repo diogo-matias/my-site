@@ -54,7 +54,7 @@ export function ProjectCard() {
                         gap: 10,
                     }}
                 >
-                    {badges.map((item) => {
+                    {badges.map((item, index) => {
                         const { logo, text, color, logoColor } = item;
 
                         const randomColor = getRandomColor();
@@ -70,6 +70,7 @@ export function ProjectCard() {
                                 }?style=for-the-badge&logo=${logo}&logoColor=${
                                     logoColor ?? contrastColor
                                 }`}
+                                key={`${logo}-${index}`}
                                 height={20}
                                 alt="technology-logo"
                             />
@@ -94,6 +95,7 @@ export function ProjectCard() {
                     position: "relative",
                     marginBottom: "10vh",
                 }}
+                key={`${item.title}-${index}`}
             >
                 <Card>
                     <a
@@ -184,7 +186,7 @@ export function ProjectCard() {
         );
     }
 
-    function renderMobileCard(item: CardPropsType) {
+    function renderMobileCard(item: CardPropsType, index: number) {
         if (width >= breakpoints.md) {
             return null;
         }
@@ -209,6 +211,7 @@ export function ProjectCard() {
                     justifyContent: "center",
                     display: "flex",
                 }}
+                key={`${item.title}-${index}`}
             >
                 <Card>
                     <div
@@ -292,7 +295,7 @@ export function ProjectCard() {
 
         return data.map((item, index) => {
             if (isDesktop) return renderFullCard(item, index);
-            return renderMobileCard(item);
+            return renderMobileCard(item, index);
         });
     }
 

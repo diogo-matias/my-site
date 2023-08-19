@@ -42,11 +42,6 @@ export function TechCanvas() {
         $("#myCanvas").tagcanvas("tagtofront", { id });
     }
 
-    function teste() {
-        const element = document.getElementById("");
-    }
-
-    teste();
     return (
         <div className="skills-ch0arts">
             <div id="myCanvasContainer">
@@ -62,7 +57,7 @@ export function TechCanvas() {
                     <ul id="tags">
                         {technologies.map((item, index) => {
                             return (
-                                <li>
+                                <li key={`${item.name}-${index}`}>
                                     <a
                                         href={"."}
                                         id={`tag${index}`}

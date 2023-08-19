@@ -6,7 +6,7 @@ import { ExperienceCardPropsType } from "./types";
 export function ExperienceCard(
     props: ExperienceCardPropsType
 ): React.ReactElement {
-    const { logoUrl, description, link, name } = props;
+    const { logoUrl, description, link, name, ...otherProps } = props;
 
     const theme = useTheme();
     const styles = createStyle(theme);
@@ -16,7 +16,7 @@ export function ExperienceCard(
     }
 
     return (
-        <Grid item container style={styles.container}>
+        <Grid item container style={styles.container} {...otherProps}>
             <Grid item xs={5} sm={3} md={4}>
                 <div onClick={handleClick}>
                     <Paper

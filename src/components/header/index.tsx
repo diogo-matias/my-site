@@ -59,12 +59,14 @@ export function Header() {
         const breakpoint = width < theme.breakpoints.values.sm;
 
         if (!breakpoint) {
-            return links.map((link) => {
+            return links.map((link, index) => {
                 return (
-                    <Typography sx={styles.links}>
-                        <div onClick={() => handleNavigation(link.scrollTo)}>
-                            {link.label}
-                        </div>
+                    <Typography
+                        onClick={() => handleNavigation(link.scrollTo)}
+                        key={`${link.scrollTo}-${index}`}
+                        sx={styles.links}
+                    >
+                        {link.label}
                     </Typography>
                 );
             });
@@ -97,14 +99,11 @@ export function Header() {
             />
             <Grid container sx={styles.container}>
                 <Grid item xs={8} sm={4}>
-                    <Typography sx={styles.links}>
-                        <div
-                            onClick={() =>
-                                handleNavigation(SECTIONS.PRESENTATION)
-                            }
-                        >
-                            Diogo <span style={styles.span}>Macedo</span>
-                        </div>
+                    <Typography
+                        sx={styles.links}
+                        onClick={() => handleNavigation(SECTIONS.PRESENTATION)}
+                    >
+                        Diogo <span style={styles.span}>Macedo</span>
                     </Typography>
                 </Grid>
                 <Grid item xs={0} sm={4} sx={{ ...styles.linkContainer }}>
