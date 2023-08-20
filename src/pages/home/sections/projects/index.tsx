@@ -26,20 +26,10 @@ export function Projects(): React.ReactElement {
         );
     }
 
-    useEffect(() => {
-        console.log("mudou");
-    }, [STRINGS]);
-
-    const renderProjectCard = useCallback(() => {
-        return <ProjectCard cardsInfo={cardsInfo} />;
-    }, [STRINGS]);
-
-    // console.log(cardsInfo[0].description);
-
     return (
         <div style={styles.container} id={SECTIONS.PROJECTS}>
             {renderTitle()}
-            {renderProjectCard()}
+            <ProjectCard cardsInfo={cardsInfo} />
         </div>
     );
 }

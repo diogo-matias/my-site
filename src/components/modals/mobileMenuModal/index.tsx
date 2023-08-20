@@ -66,9 +66,9 @@ export function MobileMenuModal(props: MobileMenuModalPropsType) {
     function renderLinks() {
         return (
             <div>
-                {links.map((item) => {
+                {links.map((item, index) => {
                     return (
-                        <div>
+                        <div key={`${item.label}-${index}`}>
                             <div
                                 onClick={() => handleItemClick(item)}
                                 className="menu-item"
