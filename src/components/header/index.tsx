@@ -24,7 +24,7 @@ export function Header() {
     const [openMobileModal, setOpenMobileModal] = useState(false);
     const [openLanguageModal, setOpenLanguageModal] = useState(false);
 
-    const links = [
+    const menuItems = [
         {
             label: STRINGS.HEADER.ABOUT,
             scrollTo: SECTIONS.ABOUT,
@@ -41,6 +41,8 @@ export function Header() {
 
     function handleLanguageSelection() {
         setOpenLanguageModal(true);
+
+        setOpenMobileModal(false);
     }
 
     function handleMobileModalClose() {
@@ -74,7 +76,7 @@ export function Header() {
         const breakpoint = width < theme.breakpoints.values.sm;
 
         if (!breakpoint) {
-            return links.map((link, index) => {
+            return menuItems.map((link, index) => {
                 return (
                     <Typography
                         onClick={() => handleNavigation(link.scrollTo)}
@@ -117,7 +119,8 @@ export function Header() {
     return (
         <div>
             <MobileMenuModal
-                links={links}
+                handleLanguageSelection={handleLanguageSelection}
+                links={menuItems}
                 onClose={handleMobileModalClose}
                 open={openMobileModal}
             />

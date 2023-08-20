@@ -10,6 +10,7 @@ import { SwitchThemeInput } from "components/switchThemeInput";
 import { LANGUAGES } from "@constants/language";
 import { useAppDispatch } from "@hooks/redux";
 import { LanguageActions } from "@store/modules/language";
+import { STRINGS } from "language";
 
 export function LanguageSelection(props: MobileMenuModalPropsType) {
     const { onClose, open } = props;
@@ -39,7 +40,7 @@ export function LanguageSelection(props: MobileMenuModalPropsType) {
         return (
             <div style={{ paddingTop: 50, paddingBottom: 30 }}>
                 <Typography variant="h5" style={{ textAlign: "center" }}>
-                    Languages
+                    {STRINGS.HEADER.LANGUAGE_MODAL_TITLE}
                 </Typography>
             </div>
         );
@@ -90,7 +91,7 @@ export function LanguageSelection(props: MobileMenuModalPropsType) {
                 }}
             >
                 <Typography style={{ fontWeight: 100, marginRight: 10 }}>
-                    Toggle Theme
+                    {STRINGS.HEADER.TOGGLE_THEME}
                 </Typography>
                 <SwitchThemeInput />
             </div>

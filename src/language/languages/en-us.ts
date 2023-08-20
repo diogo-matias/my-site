@@ -3,6 +3,9 @@ export const enUs = {
         ABOUT: "About",
         PROJECTS: "Projects",
         CONTACT: "Contact",
+        LANGUAGE: "Language",
+        LANGUAGE_MODAL_TITLE: "Languages",
+        TOGGLE_THEME: "Toggle theme",
     },
 
     MAIN: {

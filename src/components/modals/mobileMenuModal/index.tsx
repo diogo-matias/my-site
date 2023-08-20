@@ -7,9 +7,10 @@ import "./style.css";
 import { useState } from "react";
 import { scrollTo } from "@hooks/scroll";
 import { SwitchThemeInput } from "components/switchThemeInput";
+import { STRINGS } from "language";
 
 export function MobileMenuModal(props: MobileMenuModalPropsType) {
-    const { links, onClose, open } = props;
+    const { links, onClose, handleLanguageSelection, open } = props;
 
     const theme = useTheme();
 
@@ -53,7 +54,13 @@ export function MobileMenuModal(props: MobileMenuModalPropsType) {
     function handleItemClick(item: any) {
         handleClose();
 
-        scrollTo(item.scrollTo);
+        if (item.scrollTo) {
+            scrollTo(item.scrollTo);
+        }
+
+        if (item.function) {
+            item.function();
+        }
     }
 
     function renderLinks() {
@@ -61,14 +68,22 @@ export function MobileMenuModal(props: MobileMenuModalPropsType) {
             <div>
                 {links.map((item) => {
                     return (
-                        <div
-                            onClick={() => handleItemClick(item)}
-                            className="menu-item"
-                        >
-                            {item.label}
+                        <div>
+                            <div
+                                onClick={() => handleItemClick(item)}
+                                className="menu-item"
+                            >
+                                {item.label}
+                            </div>
                         </div>
                     );
                 })}
+                <div
+                    onClick={() => handleLanguageSelection()}
+                    className="menu-item"
+                >
+                    {STRINGS.HEADER.LANGUAGE}
+                </div>
             </div>
         );
     }
@@ -85,7 +100,7 @@ export function MobileMenuModal(props: MobileMenuModalPropsType) {
                 }}
             >
                 <Typography style={{ fontWeight: 100, marginRight: 10 }}>
-                    Toggle Theme
+                    {STRINGS.HEADER.TOGGLE_THEME}
                 </Typography>
                 <SwitchThemeInput />
             </div>
@@ -109,7 +124,7 @@ export function MobileMenuModal(props: MobileMenuModalPropsType) {
                     height: "100vh",
                     width: "80vw",
                     backgroundColor: hexToRGBA(
-                        theme.palette.background.default,
+                        theme.palette.background.paper,
                         0.5
                     ),
                     backdropFilter: "blur(10px)",

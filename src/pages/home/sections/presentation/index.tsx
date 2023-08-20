@@ -1,4 +1,4 @@
-import { Typography, useTheme } from "@mui/material";
+import { Typography, styled, useTheme } from "@mui/material";
 import React from "react";
 
 import { Man3d } from "@components";
@@ -12,6 +12,29 @@ import { SiGithub, SiLinkedin } from "react-icons/si";
 import { SOCIAL } from "@constants/social";
 import { STYLES } from "components/header/styles";
 import { STRINGS } from "language";
+
+const StyledDiv = styled("div")(({ theme }) => ({
+    paddingTop: "13vh",
+    paddingLeft: "5vw",
+    display: "flex",
+    flexDirection: "column",
+
+    [theme.breakpoints.down(600)]: {
+        height: "80vh",
+        justifyContent: "space-between",
+    },
+}));
+
+const ButtonContainer = styled("div")(({ theme }) => ({
+    marginTop: 10,
+    display: "flex",
+    gap: 20,
+    fontSize: 30,
+
+    [theme.breakpoints.down(600)]: {
+        justifyContent: "center",
+    },
+}));
 
 export default function Presentation(): React.ReactElement {
     const theme = useTheme();
@@ -28,7 +51,7 @@ export default function Presentation(): React.ReactElement {
 
     function renderButtons() {
         return (
-            <div style={styles.buttonsContainer}>
+            <ButtonContainer>
                 <MyButton
                     variant="contained"
                     onClick={handleProjectsButtonClick}
@@ -43,26 +66,35 @@ export default function Presentation(): React.ReactElement {
                     style={styles.button}
                     onClick={() => handleNavigation(SOCIAL.LINKEDIN)}
                 />
-            </div>
+            </ButtonContainer>
         );
     }
 
     function renderTitle() {
         return (
-            <div style={styles.titleContainer}>
-                <Typography style={styles.title} variant="h2" fontWeight={600}>
-                    {STRINGS.MAIN.TITLE}
-                    <span style={styles.titleSpan}> {STRINGS.MAIN.NAME}</span>
-                </Typography>
-                <Typography
-                    variant="h5"
-                    fontWeight={100}
-                    style={{ marginRight: 30 }}
-                >
-                    {STRINGS.MAIN.SUBTITLE}
-                </Typography>
+            <StyledDiv>
+                <div>
+                    <Typography
+                        style={styles.title}
+                        variant="h2"
+                        fontWeight={600}
+                    >
+                        {STRINGS.MAIN.TITLE}
+                        <span style={styles.titleSpan}>
+                            {" "}
+                            {STRINGS.MAIN.NAME}
+                        </span>
+                    </Typography>
+                    <Typography
+                        variant="h5"
+                        fontWeight={100}
+                        style={{ marginRight: 30, textAlign: "center" }}
+                    >
+                        {STRINGS.MAIN.SUBTITLE}
+                    </Typography>
+                </div>
                 {renderButtons()}
-            </div>
+            </StyledDiv>
         );
     }
 

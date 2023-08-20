@@ -5,6 +5,10 @@ export const ptBr: LanguageStrings = {
         ABOUT: "Sobre",
         PROJECTS: "Projetos",
         CONTACT: "Contato",
+
+        LANGUAGE: "Idioma",
+        LANGUAGE_MODAL_TITLE: "Idiomas",
+        TOGGLE_THEME: "Mudar tema",
     },
 
     MAIN: {

@@ -22,6 +22,7 @@ export function createStyle(theme: Theme): {
         },
         title: {
             letterSpacing: -5,
+            textAlign: "center",
         },
         titleSpan: {
             color: theme.palette.primary.main,
