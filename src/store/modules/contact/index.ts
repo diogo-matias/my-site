@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ContactApi } from "api/contact";
 import { SendMessageType } from "api/contact/types";
+import { GoogleApi } from "api/google";
+import { SendPageViewMessageActionPayloadType } from "./types";
 
 const initialState = {
     isLoading: false,
@@ -20,7 +22,9 @@ const sendMessage = createAsyncThunk(
 
 const sendPageViewMessage = createAsyncThunk(
     "@contact/sendPageViewMessage",
-    async () => {
+    async (payload: SendPageViewMessageActionPayloadType) => {
+        const { longitude, latitude } = payload;
+
         const userInfoStr = localStorage.getItem("userInfo") as string;
         const sessionInfoStr = sessionStorage.getItem("sessionInfo") as string;
 
@@ -30,7 +34,11 @@ const sendPageViewMessage = createAsyncThunk(
         if (!userInfo) {
             localStorage.setItem(
                 "userInfo",
-                JSON.stringify({ id: crypto.randomUUID(), numberOfSessions: 1 })
+                JSON.stringify({
+                    id: crypto.randomUUID(),
+                    numberOfSessions: 1,
+                    localization: "",
+                })
             );
         }
 
@@ -40,15 +48,20 @@ const sendPageViewMessage = createAsyncThunk(
                 numberOfSessions: userInfo?.numberOfSessions
                     ? Number(userInfo?.numberOfSessions) + 1
                     : 1,
+                localization: "",
             };
+
+            newValues.localization = await GoogleApi.getLocalizationInfo({
+                longitude: Number(longitude),
+                latitude: Number(latitude),
+            });
+
+            await ContactApi.sendPageViewMessage(newValues);
 
             sessionStorage.setItem(
                 "sessionInfo",
                 JSON.stringify({ id: crypto.randomUUID() })
             );
-
-            await ContactApi.sendPageViewMessage(newValues);
-
             localStorage.setItem("userInfo", JSON.stringify(newValues));
         }
     }
