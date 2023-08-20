@@ -22,9 +22,9 @@ export const enUs = {
         FEATURED_PRODUCT: "Featured product",
 
         DESCRIPTION_ECOMMERCE:
-            "Full-stack e-commerce project crafted using React and Tailwind CSS, encompassing a comprehensive range of features and a seamless purchasing journey. Key features: User registration, login, advanced filtered search by product category, title, or price, robust shopping cart functionality, and an intuitive purchasing system",
+            "Full-stack e-commerce project developed using React and Tailwind CSS, incorporating a wide array of features and a smooth purchasing experience. Key features include: user registration and login, advanced filtered search by product category, title, or price, robust shopping cart functionality, and an intuitive purchasing system.",
         DESCRIPTION_BIBLE:
-            "A project centered around a React-based Bible application, offering the capability to read in numerous languages and access a vast array of versions. Users can seamlessly adjust font sizes and switch between both light and dark themes according to their preference.",
+            "A project focused on a React-based Bible application, providing the ability to read in multiple languages and access a wide range of versions. Users can easily adjust font sizes and switch between light and dark themes according to their preferences.",
     },
 
     ABOUT: {
