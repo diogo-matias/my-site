@@ -41,7 +41,7 @@ export function Man3d() {
         <Suspense fallback={renderProgress()}>
             <Canvas style={styles.canvas} shadows flat linear>
                 <ManCoding3d />
-                {/* <Scene /> */}
+
                 <CustomOrbitControls />
             </Canvas>
         </Suspense>

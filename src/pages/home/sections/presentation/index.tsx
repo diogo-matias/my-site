@@ -6,11 +6,12 @@ import { MyButton } from "components/myButton";
 
 import { createStyle } from "./styles";
 import { SECTIONS } from "@constants/sections";
-import { scrollTo, scrollToWithPadding } from "@hooks/scroll";
+import { scrollToWithPadding } from "@hooks/scroll";
 import useWindowDimensions from "@hooks/windowDimentions";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { SOCIAL } from "@constants/social";
 import { STYLES } from "components/header/styles";
+import { STRINGS } from "language";
 
 export default function Presentation(): React.ReactElement {
     const theme = useTheme();
@@ -32,7 +33,7 @@ export default function Presentation(): React.ReactElement {
                     variant="contained"
                     onClick={handleProjectsButtonClick}
                 >
-                    Projects
+                    {STRINGS.MAIN.PROJECTS_BUTTON}
                 </MyButton>
                 <SiGithub
                     style={styles.button}
@@ -50,14 +51,15 @@ export default function Presentation(): React.ReactElement {
         return (
             <div style={styles.titleContainer}>
                 <Typography style={styles.title} variant="h2" fontWeight={600}>
-                    Hi there, i'm <span style={styles.titleSpan}>Diogo</span>
+                    {STRINGS.MAIN.TITLE}
+                    <span style={styles.titleSpan}> {STRINGS.MAIN.NAME}</span>
                 </Typography>
                 <Typography
                     variant="h5"
                     fontWeight={100}
                     style={{ marginRight: 30 }}
                 >
-                    Fullstack Developer based in Brazil
+                    {STRINGS.MAIN.SUBTITLE}
                 </Typography>
                 {renderButtons()}
             </div>

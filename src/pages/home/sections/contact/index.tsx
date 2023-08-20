@@ -18,6 +18,7 @@ import { useAppDispatch, useAppSelector } from "@hooks/redux";
 import { ContactActions } from "@store/modules/contact";
 import { FaX, FaCheck } from "react-icons/fa6";
 import { SECTIONS } from "@constants/sections";
+import { STRINGS } from "language";
 
 const Text = styled(Typography)(({ theme }) => ({
     textAlign: "end",
@@ -89,7 +90,7 @@ export function Contact() {
         return (
             <Grid container sx={styles.titleContainer}>
                 <Typography variant="h3" fontWeight={600}>
-                    Contact
+                    {STRINGS.CONTACT.TITLE}
                 </Typography>
                 <div style={styles.divider} />
             </Grid>
@@ -103,7 +104,7 @@ export function Contact() {
     function renderLeftSide() {
         return (
             <LeftContainer>
-                <Text variant="h4">Feel free to shoot me a message!</Text>
+                <Text variant="h4">{STRINGS.CONTACT.CALL_TO_SEND_MESSAGE}</Text>
                 <ButtonsContainer>
                     <SiGithub onClick={() => handleNavigation(SOCIAL.GITHUB)} />
                     <SiLinkedin
@@ -129,6 +130,8 @@ export function Contact() {
     }
 
     function renderRightSide() {
+        const { EMAIL, MESSAGE, NAME, SUBJECT } = STRINGS.CONTACT.PLACEHOLDERS;
+
         return (
             <div>
                 <div>
@@ -136,14 +139,14 @@ export function Contact() {
                         variant="h4"
                         sx={{ marginBottom: 5, fontWeight: 500 }}
                     >
-                        Send Message
+                        {STRINGS.CONTACT.FORM_TITLE}
                     </Typography>
                     <form onSubmit={formik.handleSubmit}>
                         <div style={{ marginBottom: 25 }}>
                             <BaseInput
                                 id="name"
                                 name="name"
-                                placeholder="Name"
+                                placeholder={NAME}
                                 onChange={formik.handleChange}
                                 value={formik.values.name}
                                 errorMessage={formik.errors.name}
@@ -155,7 +158,7 @@ export function Contact() {
                             <BaseInput
                                 id="email"
                                 name="email"
-                                placeholder="Your Email"
+                                placeholder={EMAIL}
                                 onChange={formik.handleChange}
                                 value={formik.values.email}
                                 errorMessage={formik.errors.email}
@@ -167,7 +170,7 @@ export function Contact() {
                             <BaseInput
                                 id="subject"
                                 name="subject"
-                                placeholder="Subject"
+                                placeholder={SUBJECT}
                                 onChange={formik.handleChange}
                                 value={formik.values.subject}
                                 errorMessage={formik.errors.subject}
@@ -180,7 +183,7 @@ export function Contact() {
                                 rows={10}
                                 id="message"
                                 name="message"
-                                placeholder="Message"
+                                placeholder={MESSAGE}
                                 onChange={formik.handleChange}
                                 value={formik.values.message}
                                 errorMessage={formik.errors.message}
@@ -200,7 +203,7 @@ export function Contact() {
                                 variant="contained"
                                 type="submit"
                             >
-                                Submit
+                                {STRINGS.CONTACT.SUBMIT_BUTTON}
                             </Button>
                             {renderIcon()}
                         </div>

@@ -1,5 +1,5 @@
 import { Breakpoint, Button, Icon, Typography, useTheme } from "@mui/material";
-import { Badge } from "./types";
+import { Badge, ProjectCardPropsType } from "./types";
 import useWindowDimensions from "@hooks/windowDimentions";
 import { RGBAToHex, getRandomColor, hexToRGBA } from "utils/colors";
 import { CustomCard, CustomImg } from "./styles";
@@ -8,9 +8,10 @@ import { CardPropsType } from "@constants/projects/types";
 import { GITHUB } from "@constants/github";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { MyButton } from "components/myButton";
+import { STRINGS } from "language";
 
-export function ProjectCard() {
-    const data = CARDS_INFO;
+export function ProjectCard(props: ProjectCardPropsType) {
+    const { cardsInfo } = props;
 
     const theme = useTheme();
     const isDarkMode = theme.palette.mode === "dark";
@@ -132,7 +133,7 @@ export function ProjectCard() {
                             }}
                         >
                             <Typography color="primary">
-                                Featured project
+                                {STRINGS.PROJECTS.FEATURED_PRODUCT}
                             </Typography>
                             <Typography variant="h5" fontWeight={600}>
                                 {item.title}
@@ -293,7 +294,7 @@ export function ProjectCard() {
     function renderCards() {
         const isDesktop = width >= breakpoints.md;
 
-        return data.map((item, index) => {
+        return cardsInfo.map((item: any, index: number) => {
             if (isDesktop) return renderFullCard(item, index);
             return renderMobileCard(item, index);
         });

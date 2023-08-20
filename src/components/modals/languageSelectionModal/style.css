@@ -1,0 +1,13 @@
+.menu-item {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    transition-duration: 500ms;
+}
+
+.menu-item:hover {
+    font-weight: 500;
+}

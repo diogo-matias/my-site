@@ -1,33 +1,32 @@
-import { Grid, Paper, Typography, useTheme } from "@mui/material";
+import { Grid, Typography, useTheme } from "@mui/material";
 import { ExperienceCard, TechCanvas } from "@components";
-import { MyButton } from "components/myButton";
 import { createStyle } from "./styles";
 import { SECTIONS } from "@constants/sections";
 import { COMPANIES } from "@constants/companies";
 import useWindowDimensions from "@hooks/windowDimentions";
+import { STRINGS } from "language";
 
 export function About(): React.ReactElement {
     const theme = useTheme();
     const styles = createStyle(theme);
     const { width } = useWindowDimensions();
+    const companies = COMPANIES(STRINGS);
 
     function renderTitle() {
         return (
             <Grid item xs={12}>
                 <div style={styles.titleContainer}>
                     <Typography variant="h3" fontWeight={600}>
-                        <span style={styles.titleSpan}>About</span> me
+                        <span style={styles.titleSpan}>
+                            {STRINGS.ABOUT.ABOUT}
+                        </span>
+                        {STRINGS.ABOUT.ME}
                     </Typography>
                     <div style={styles.divider} />
                 </div>
-                <Typography fontWeight={200}>
-                    I'm a Brazilian-based fullstack web developer with a fervent
-                    passion for programming and logical problem-solving. I find
-                    my stride in facing challenges head-on and am perpetually
-                    driven to acquire fresh knowledge and skills.
-                </Typography>
+                <Typography fontWeight={200}>{STRINGS.ABOUT.TEXT}</Typography>
                 <Typography sx={styles.experienceTitle} variant="h4">
-                    Experience
+                    {STRINGS.ABOUT.EXPERIENCE}
                 </Typography>
             </Grid>
         );
@@ -36,7 +35,7 @@ export function About(): React.ReactElement {
     function renderCards() {
         return (
             <div style={styles.cardsContainer}>
-                {COMPANIES.map((item, index) => {
+                {companies.map((item, index) => {
                     return (
                         <ExperienceCard
                             name={item.name}

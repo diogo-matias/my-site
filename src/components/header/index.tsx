@@ -1,38 +1,53 @@
-import { Grid, Typography, useTheme } from "@mui/material";
+import { Button, Grid, Typography, useTheme } from "@mui/material";
 import { SwitchThemeInput } from "../switchThemeInput";
 import { STYLES, createStyle } from "./styles";
 import { SECTIONS } from "@constants/sections";
-import { scrollTo, scrollToWithPadding } from "@hooks/scroll";
+import { scrollToWithPadding } from "@hooks/scroll";
 import useWindowDimensions from "@hooks/windowDimentions";
 import { FaBars } from "react-icons/fa";
 import { MobileMenuModal } from "components/modals/mobileMenuModal";
 import { useState } from "react";
+import { STRINGS } from "language";
+import { useDispatch } from "react-redux";
+import { LanguageActions } from "@store/modules/language";
+import { LANGUAGES } from "@constants/language";
+import { FaLanguage } from "react-icons/fa6";
+import { LanguageSelection } from "components/modals/languageSelectionModal";
 
 export function Header() {
     const { width } = useWindowDimensions();
 
     const theme = useTheme();
     const styles = createStyle(theme);
+    const dispatch = useDispatch();
 
     const [openMobileModal, setOpenMobileModal] = useState(false);
+    const [openLanguageModal, setOpenLanguageModal] = useState(false);
 
     const links = [
         {
-            label: "About",
+            label: STRINGS.HEADER.ABOUT,
             scrollTo: SECTIONS.ABOUT,
         },
         {
-            label: "Projects",
+            label: STRINGS.HEADER.PROJECTS,
             scrollTo: SECTIONS.PROJECTS,
         },
         {
-            label: "Contact",
+            label: STRINGS.HEADER.CONTACT,
             scrollTo: SECTIONS.CONTACT,
         },
     ];
 
+    function handleLanguageSelection() {
+        setOpenLanguageModal(true);
+    }
+
     function handleMobileModalClose() {
         setOpenMobileModal(false);
+    }
+    function handleLanguageModalClose() {
+        setOpenLanguageModal(false);
     }
 
     function handleNavigation(elementId: string) {
@@ -87,7 +102,16 @@ export function Header() {
             );
         }
 
-        return <SwitchThemeInput />;
+        return (
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <FaLanguage
+                    onClick={handleLanguageSelection}
+                    size="40px"
+                    style={{ cursor: "pointer" }}
+                />
+                <SwitchThemeInput />
+            </div>
+        );
     }
 
     return (
@@ -96,6 +120,10 @@ export function Header() {
                 links={links}
                 onClose={handleMobileModalClose}
                 open={openMobileModal}
+            />
+            <LanguageSelection
+                onClose={handleLanguageModalClose}
+                open={openLanguageModal}
             />
             <Grid container sx={styles.container}>
                 <Grid item xs={8} sm={4}>
