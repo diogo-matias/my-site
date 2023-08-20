@@ -56,6 +56,8 @@ function App() {
                     }
                 );
             } else {
+                console.log("Error to get localization");
+
                 return resolve({ latitude: undefined, longitude: undefined });
             }
         });
