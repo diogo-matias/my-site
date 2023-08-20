@@ -20,7 +20,7 @@ const StyledDiv = styled("div")(({ theme }) => ({
     flexDirection: "column",
 
     [theme.breakpoints.down(600)]: {
-        height: "80vh",
+        height: "75vh",
         justifyContent: "space-between",
     },
 }));
