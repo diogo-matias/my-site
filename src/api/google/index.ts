@@ -20,9 +20,7 @@ export class _GoogleApi {
 
             return response.data.plus_code.compound_code;
         } catch (err) {
-            const error = err as Error;
-
-            throw new Error(error.message);
+            return false;
         }
     }
 }
