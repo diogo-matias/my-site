@@ -1,6 +1,9 @@
-import { SendPageViewMessageActionPayloadType } from "@store/modules/contact/types";
+type GeoLocalizationReturnType = {
+    latitude?: number;
+    longitude?: number;
+};
 
-export async function getLocalization(): Promise<SendPageViewMessageActionPayloadType> {
+export async function getLocalization(): Promise<GeoLocalizationReturnType> {
     return new Promise((resolve) => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(

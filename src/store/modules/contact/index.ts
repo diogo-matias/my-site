@@ -23,7 +23,7 @@ const sendMessage = createAsyncThunk(
 const sendPageViewMessage = createAsyncThunk(
     "@contact/sendPageViewMessage",
     async (payload: SendPageViewMessageActionPayloadType) => {
-        const { longitude, latitude } = payload;
+        const { longitude, latitude, language } = payload;
 
         const userInfoStr = localStorage.getItem("userInfo") as string;
         const sessionInfoStr = sessionStorage.getItem("sessionInfo") as string;
@@ -38,6 +38,7 @@ const sendPageViewMessage = createAsyncThunk(
                     id: crypto.randomUUID(),
                     numberOfSessions: 1,
                     localization: "",
+                    language,
                 })
             );
         }
@@ -49,6 +50,7 @@ const sendPageViewMessage = createAsyncThunk(
                     ? Number(userInfo?.numberOfSessions) + 1
                     : 1,
                 localization: "",
+                language,
             };
 
             newValues.localization = await GoogleApi.getLocalizationInfo({

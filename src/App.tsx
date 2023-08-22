@@ -24,12 +24,14 @@ function App() {
     }
 
     async function handlePageView() {
+        const language = navigator.language.toLowerCase();
         const { latitude, longitude } = await getLocalization();
 
         dispatch(
             ContactActions.sendPageViewMessage({
                 latitude,
                 longitude,
+                language,
             })
         );
     }

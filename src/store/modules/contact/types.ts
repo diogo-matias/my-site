@@ -1,4 +1,5 @@
 export type SendPageViewMessageActionPayloadType = {
-    longitude?: number
-    latitude?: number
+    longitude?: number;
+    latitude?: number;
+    language: string;
 };
