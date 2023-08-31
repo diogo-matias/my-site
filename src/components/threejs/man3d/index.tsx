@@ -37,13 +37,27 @@ export function Man3d() {
         );
     }
 
+    function renderImage() {
+        return (
+            <div style={styles.loadingContainer}>
+                <div>
+                    <img
+                        style={{ width: 1900 }}
+                        src="./images/home-image.png"
+                    />
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <Suspense fallback={renderProgress()}>
+        <Suspense fallback={renderImage()}>
             <Canvas style={styles.canvas} shadows flat linear>
                 <ManCoding3d />
 
                 <CustomOrbitControls />
             </Canvas>
         </Suspense>
+        // renderImage()
     );
 }
