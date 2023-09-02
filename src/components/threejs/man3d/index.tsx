@@ -51,13 +51,12 @@ export function Man3d() {
     }
 
     return (
-        <Suspense fallback={renderImage()}>
+        <Suspense fallback={renderProgress()}>
             <Canvas style={styles.canvas} shadows flat linear>
                 <ManCoding3d />
 
                 <CustomOrbitControls />
             </Canvas>
         </Suspense>
-        // renderImage()
     );
 }
