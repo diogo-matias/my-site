@@ -28,12 +28,9 @@ const StyledDiv = styled("div")(({ theme }) => ({
 const ButtonContainer = styled("div")(({ theme }) => ({
     marginTop: 10,
     display: "flex",
+    justifyContent: "center",
     gap: 20,
     fontSize: 30,
-
-    [theme.breakpoints.down(600)]: {
-        justifyContent: "center",
-    },
 }));
 
 export default function Presentation(): React.ReactElement {
