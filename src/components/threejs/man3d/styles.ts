@@ -29,13 +29,13 @@ export const styles = createStyle({
     },
     progressLoadingContainer: {
         position: "absolute",
-        top: 0,
         left: 0,
+        right: 0,
+        margin: "0 auto",
         display: "flex",
         justifyContent: "center",
-        alignItems: "end",
-        width: "100vw",
-        height: "60vh",
+        alignItems: "center",
+        height: "110vh",
         overflow: "hidden",
     },
     imageContainer: {
