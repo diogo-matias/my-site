@@ -1,5 +1,5 @@
 import { Typography, styled, useTheme } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Man3d } from "@components";
 import { MyButton } from "components/myButton";
@@ -40,6 +40,7 @@ export default function Presentation(): React.ReactElement {
     const theme = useTheme();
     const styles = createStyle(theme);
     const { width } = useWindowDimensions();
+    const [isLoading, setIsLoading] = useState();
 
     function handleProjectsButtonClick() {
         scrollToWithPadding(SECTIONS.PROJECTS, STYLES.HEADER_HEIGHT);
@@ -97,6 +98,10 @@ export default function Presentation(): React.ReactElement {
             </StyledDiv>
         );
     }
+
+    useEffect(() => {
+        console.log(isLoading);
+    }, [isLoading]);
 
     function render3d() {
         return <Man3d />;

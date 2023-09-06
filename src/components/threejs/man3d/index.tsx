@@ -31,7 +31,7 @@ function CustomOrbitControls() {
 export function Man3d() {
     function renderProgress() {
         return (
-            <div style={styles.loadingContainer}>
+            <div style={styles.progressLoadingContainer}>
                 <CircularProgress disableShrink size={"10vw"} color="primary" />
             </div>
         );
@@ -39,19 +39,21 @@ export function Man3d() {
 
     function renderImage() {
         return (
-            <div style={styles.loadingContainer}>
-                <div>
-                    <img
-                        style={{ width: 1900 }}
-                        src="./images/home-image.png"
-                    />
+            <Suspense fallback={renderProgress()}>
+                <div style={styles.loadingContainer}>
+                    <div>
+                        <img
+                            style={{ width: 1900 }}
+                            src="./images/home-image.png"
+                        />
+                    </div>
                 </div>
-            </div>
+            </Suspense>
         );
     }
 
     return (
-        <Suspense fallback={renderProgress()}>
+        <Suspense fallback={renderImage()}>
             <Canvas style={styles.canvas} shadows flat linear>
                 <ManCoding3d />
 

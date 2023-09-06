@@ -27,6 +27,17 @@ export const styles = createStyle({
         // backgroundColor: "red",
         overflow: "hidden",
     },
+    progressLoadingContainer: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "end",
+        width: "100vw",
+        height: "60vh",
+        overflow: "hidden",
+    },
     imageContainer: {
         display: "flex",
         alignItems: "center",
