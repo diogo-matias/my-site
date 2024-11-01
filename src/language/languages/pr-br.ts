@@ -14,7 +14,7 @@ export const ptBr: LanguageStrings = {
     MAIN: {
         NAME: "Diogo",
         TITLE: "Olá, sou",
-        SUBTITLE: "Desenvolvedor web FullStack",
+        SUBTITLE: "Desenvolvedor web FullStack | Desenvolvedor Mobile",
         PROJECTS_BUTTON: "Projetos",
     },
 

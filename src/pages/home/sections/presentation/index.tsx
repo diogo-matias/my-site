@@ -1,7 +1,7 @@
 import { Typography, styled, useTheme } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
-import { Man3d } from "@components";
+import { Man3d, TechCanvas } from "@components";
 import { MyButton } from "components/myButton";
 
 import { createStyle } from "./styles";
@@ -13,17 +13,23 @@ import { SOCIAL } from "@constants/social";
 import { STYLES } from "components/header/styles";
 import { STRINGS } from "language";
 
-const StyledDiv = styled("div")(({ theme }) => ({
-    paddingTop: "13vh",
-    paddingLeft: "5vw",
-    display: "flex",
-    flexDirection: "column",
+// const StyledDiv = styled("div")(({ theme }) => ({
+//     position: "absolute",
+//     zIndex: 1,
+//     paddingTop: "13vh",
+//     paddingLeft: "5vw",
+//     display: "flex",
+//     flexDirection: "column",
+//     height: "75vh",
+//     alignItems: "center",
+//     justifyContent: "center",
+//     margin: "auto",
+//     backgroundColor: "red",
 
-    [theme.breakpoints.down(600)]: {
-        height: "75vh",
-        justifyContent: "space-between",
-    },
-}));
+//     [theme.breakpoints.down(600)]: {
+//         justifyContent: "space-between",
+//     },
+// }));
 
 const ButtonContainer = styled("div")(({ theme }) => ({
     marginTop: 10,
@@ -36,7 +42,7 @@ const ButtonContainer = styled("div")(({ theme }) => ({
 export default function Presentation(): React.ReactElement {
     const theme = useTheme();
     const styles = createStyle(theme);
-    const { width } = useWindowDimensions();
+    const { width, height } = useWindowDimensions();
     const [isLoading, setIsLoading] = useState();
 
     function handleProjectsButtonClick() {
@@ -70,11 +76,18 @@ export default function Presentation(): React.ReactElement {
 
     function renderTitle() {
         return (
-            <StyledDiv>
+            <div
+                style={{
+                    position: "absolute",
+                    top: "40%",
+                    left: "25%",
+                    zIndex: 1,
+                }}
+            >
                 <div>
                     <Typography
                         style={styles.title}
-                        variant="h2"
+                        variant="h1"
                         fontWeight={600}
                     >
                         {STRINGS.MAIN.TITLE}
@@ -92,7 +105,7 @@ export default function Presentation(): React.ReactElement {
                     </Typography>
                 </div>
                 {renderButtons()}
-            </StyledDiv>
+            </div>
         );
     }
 
@@ -110,11 +123,43 @@ export default function Presentation(): React.ReactElement {
         }
     }
 
+    // function renderTitle(){
+    //     return (
+    //         <div>
+    //             <Typography>
+
+    //             </Typography>
+    //         </div>
+    //     )
+    // }
+
+    function renderTechCanvas() {
+        return (
+            <div
+                style={{
+                    position: "absolute",
+                    top: 0,
+                    // right: "50%",
+                    // backgroundColor: "red",
+                }}
+            >
+                <TechCanvas width={width - 200} height={height} depth={2} />
+            </div>
+        );
+    }
+
     return (
-        <div style={styles.container} id={SECTIONS.PRESENTATION}>
-            {renderBlack()}
+        <div
+            style={{
+                // backgroundColor: "red",
+                height: "100vh",
+                width: "100%",
+                position: "relative",
+            }}
+            id={SECTIONS.PRESENTATION}
+        >
             {renderTitle()}
-            {render3d()}
+            {renderTechCanvas()}
         </div>
     );
 }

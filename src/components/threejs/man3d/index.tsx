@@ -32,7 +32,7 @@ export function Man3d() {
     function renderProgress() {
         return (
             <div style={styles.progressLoadingContainer}>
-                <CircularProgress disableShrink size={"10vw"} color="primary" />
+                <CircularProgress disableShrink size={"5vw"} color="primary" />
             </div>
         );
     }

@@ -1,10 +1,12 @@
 import { Grid, Typography, useTheme } from "@mui/material";
-import { ExperienceCard, TechCanvas } from "@components";
+import { ExperienceCard, Man3d, TechCanvas } from "@components";
 import { createStyle } from "./styles";
 import { SECTIONS } from "@constants/sections";
 import { COMPANIES } from "@constants/companies";
 import useWindowDimensions from "@hooks/windowDimentions";
 import { STRINGS } from "language";
+import { Earth3d } from "components/threejs/earth";
+import { DogModel } from "models";
 
 export function About(): React.ReactElement {
     const theme = useTheme();
@@ -50,12 +52,14 @@ export function About(): React.ReactElement {
         );
     }
 
-    function renderTechCanvas() {
-        const breakpoint = width < theme.breakpoints.values.md;
-
-        if (!breakpoint) {
-            return <TechCanvas />;
-        }
+    function renderImg() {
+        return (
+            <img
+                style={{ width: "80%" }}
+                src="https://nocodestartup.io/wp-content/uploads/2023/12/programador-trabalhando-1-1024x1024.png"
+                alt=""
+            />
+        );
     }
 
     return (
@@ -66,7 +70,7 @@ export function About(): React.ReactElement {
                     {renderCards()}
                 </Grid>
                 <Grid item xs={0} md={6} style={styles.tagsContainer}>
-                    {renderTechCanvas()}
+                    {renderImg()}
                 </Grid>
             </Grid>
         </div>

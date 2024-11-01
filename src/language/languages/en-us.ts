@@ -11,7 +11,7 @@ export const enUs = {
     MAIN: {
         TITLE: "Hi there, i'm",
         NAME: "Diogo",
-        SUBTITLE: "Fullstack Developer",
+        SUBTITLE: "Fullstack Developer | Mobile Developer",
         PROJECTS_BUTTON: "Projects",
     },
 

@@ -7,12 +7,11 @@ function createStyle<T extends VamoDale>(styles: T) {
 export const styles = createStyle({
     canvas: {
         position: "absolute",
-        zIndex: "-2",
         filter: "opacity(1)",
-        height: "100vh",
-        overflow: "hidden",
+        height: "50vh",
         padding: 0,
         margin: 0,
+        backgroundColor: "green",
     },
     loadingContainer: {
         paddingLeft: 200,
@@ -24,7 +23,6 @@ export const styles = createStyle({
         alignItems: "end",
         width: "100%",
         height: "100vh",
-        // backgroundColor: "red",
         overflow: "hidden",
     },
     progressLoadingContainer: {

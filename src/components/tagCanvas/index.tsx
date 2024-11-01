@@ -2,10 +2,19 @@ import { TECHNOLOGIES } from "@constants/technologies";
 import useWindowDimensions from "@hooks/windowDimentions";
 import { useTheme } from "@mui/material";
 
-export function TechCanvas() {
+export type TechCanvasPropTypes = {
+    depth?: number;
+    width?: number;
+    height?: number;
+};
+
+export function TechCanvas(props: TechCanvasPropTypes) {
+    const { width: _width, height: _height } = useWindowDimensions();
+
+    const { height = 600, width = _width / 2 } = props;
+
     const technologies = TECHNOLOGIES;
     const theme = useTheme();
-    const { width, height } = useWindowDimensions();
 
     $(document).ready(function () {
         if (
@@ -15,7 +24,7 @@ export function TechCanvas() {
                     outlineColour: theme.palette.primary.main,
                     textColour: theme.palette.primary.main,
                     reverse: true,
-                    depth: 0.8,
+                    depth: 2,
                     maxSpeed: 0.02,
                     minSpeed: 0.001,
                     textFont: null,
@@ -46,12 +55,11 @@ export function TechCanvas() {
         <div className="skills-ch0arts">
             <div id="myCanvasContainer">
                 <canvas
-                    width={width / 2}
-                    height={600}
+                    width={width}
+                    height={height}
                     id="myCanvas"
                     style={{
                         aspectRatio: "1/1",
-                        // backgroundColor: "red",
                     }}
                 >
                     <ul id="tags">
