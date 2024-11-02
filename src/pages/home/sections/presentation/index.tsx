@@ -12,6 +12,8 @@ import { SiGithub, SiLinkedin } from "react-icons/si";
 import { SOCIAL } from "@constants/social";
 import { STYLES } from "components/header/styles";
 import { STRINGS } from "language";
+import { climb } from "utils/math";
+import { hexToRGBA } from "utils/colors";
 
 // const StyledDiv = styled("div")(({ theme }) => ({
 //     position: "absolute",
@@ -75,23 +77,46 @@ export default function Presentation(): React.ReactElement {
     }
 
     function renderTitle() {
+        const shouldUseTextGlow = theme.palette.mode === "dark";
+
         return (
             <div
                 style={{
                     position: "absolute",
-                    top: "40%",
-                    left: "25%",
+
+                    left: 0,
+                    right: 0,
+                    marginInline: "auto",
+                    width: "fit-content",
                     zIndex: 1,
+                    top: "40%",
                 }}
             >
                 <div>
                     <Typography
-                        style={styles.title}
+                        style={{
+                            ...styles.title,
+                            textShadow: shouldUseTextGlow
+                                ? `0px 0px 100px ${theme.palette.getContrastText(
+                                      theme.palette.background.default
+                                  )}`
+                                : "",
+                        }}
                         variant="h1"
                         fontWeight={600}
                     >
                         {STRINGS.MAIN.TITLE}
-                        <span style={styles.titleSpan}>
+                        <span
+                            style={{
+                                ...styles.titleSpan,
+                                textShadow: shouldUseTextGlow
+                                    ? `0px 0px 100px ${hexToRGBA(
+                                          theme.palette.primary.main,
+                                          50
+                                      )}`
+                                    : "",
+                            }}
+                        >
                             {" "}
                             {STRINGS.MAIN.NAME}
                         </span>
@@ -133,21 +158,6 @@ export default function Presentation(): React.ReactElement {
     //     )
     // }
 
-    function renderTechCanvas() {
-        return (
-            <div
-                style={{
-                    position: "absolute",
-                    top: 0,
-                    // right: "50%",
-                    // backgroundColor: "red",
-                }}
-            >
-                <TechCanvas width={width - 200} height={height} depth={2} />
-            </div>
-        );
-    }
-
     return (
         <div
             style={{
@@ -159,7 +169,7 @@ export default function Presentation(): React.ReactElement {
             id={SECTIONS.PRESENTATION}
         >
             {renderTitle()}
-            {renderTechCanvas()}
+            {/* {renderTechCanvas()} */}
         </div>
     );
 }

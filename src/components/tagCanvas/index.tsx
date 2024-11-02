@@ -1,6 +1,9 @@
 import { TECHNOLOGIES } from "@constants/technologies";
 import useWindowDimensions from "@hooks/windowDimentions";
 import { useTheme } from "@mui/material";
+import { useCallback } from "react";
+import { alphaToHexColor } from "utils/colors";
+import { climb } from "utils/math";
 
 export type TechCanvasPropTypes = {
     depth?: number;
@@ -11,10 +14,24 @@ export type TechCanvasPropTypes = {
 export function TechCanvas(props: TechCanvasPropTypes) {
     const { width: _width, height: _height } = useWindowDimensions();
 
-    const { height = 600, width = _width / 2 } = props;
+    const { height = 600, width = _width } = props;
 
     const technologies = TECHNOLOGIES;
     const theme = useTheme();
+
+    const depth = useCallback(() => {
+        return climb({
+            min: {
+                correspondingValue: 5,
+                minValue: 500,
+            },
+            max: {
+                correspondingValue: 2,
+                maxValue: 1200,
+            },
+            currentValue: width,
+        });
+    }, [width]);
 
     $(document).ready(function () {
         if (
@@ -22,9 +39,12 @@ export function TechCanvas(props: TechCanvasPropTypes) {
             !$("#myCanvas").tagcanvas(
                 {
                     outlineColour: theme.palette.primary.main,
-                    textColour: theme.palette.primary.main,
+                    textColour: alphaToHexColor({
+                        color: theme.palette.primary.main,
+                        alpha: width > 700 ? 100 : 50,
+                    }),
                     reverse: true,
-                    depth: 2,
+                    depth: depth(),
                     maxSpeed: 0.02,
                     minSpeed: 0.001,
                     textFont: null,
@@ -55,7 +75,7 @@ export function TechCanvas(props: TechCanvasPropTypes) {
         <div className="skills-ch0arts">
             <div id="myCanvasContainer">
                 <canvas
-                    width={width}
+                    width={width > 700 ? width - 100 : width}
                     height={height}
                     id="myCanvas"
                     style={{
