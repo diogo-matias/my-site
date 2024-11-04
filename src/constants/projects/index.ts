@@ -91,5 +91,41 @@ export const CARDS_INFO = (STRINGS: LanguageStrings): CardPropsType[] => {
                 },
             ],
         },
+        {
+            imageUrl:
+                "https://storage.googleapis.com/medium-feed.appspot.com/images%2F9353691196%2F2f49650ed42b1-Para-que-e-usado-o-JavaScript.jpg",
+            redirectLink: "https://forge-code.vercel.app/quiz",
+            title: "Javascript Quiz",
+            githubLink: "https://github.com/diogo-matias",
+            description: STRINGS.PROJECTS.DESCRIPTION_QUIZ,
+            badges: [
+                {
+                    logo: "next.js",
+                    text: "Next",
+                },
+                {
+                    logo: "Typescript",
+                    text: "Typescript",
+                },
+                {
+                    logo: "REDUX",
+                    text: "REDUX",
+                },
+
+                {
+                    logo: "React",
+                    text: "React JS",
+                },
+
+                {
+                    logo: "vercel",
+                    text: "vercel",
+                },
+                {
+                    logo: "tailwind CSS",
+                    text: "Tailwind",
+                },
+            ],
+        },
     ];
 };

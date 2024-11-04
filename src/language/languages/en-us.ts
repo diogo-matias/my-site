@@ -25,6 +25,8 @@ export const enUs = {
             "Full-stack e-commerce project developed using React and Tailwind CSS, incorporating a wide array of features and a smooth purchasing experience. Key features include: user registration and login, advanced filtered search by product category, title, or price, robust shopping cart functionality, and an intuitive purchasing system.",
         DESCRIPTION_BIBLE:
             "A project focused on a React-based Bible application, providing the ability to read in multiple languages and access a wide range of versions. Users can easily adjust font sizes and switch between light and dark themes according to their preferences.",
+        DESCRIPTION_QUIZ:
+            "Interactive javascript quiz made with NextJS, it`s still in v1.0, and soon Ill add more features to make it more and more complete",
     },
 
     ABOUT: {

@@ -26,6 +26,9 @@ export const ptBr: LanguageStrings = {
             "Projeto E-commerce Full-Stack criado usando React e Tailwind CSS, abrangendo uma gama de recursos e uma jornada de compra completa. Principais recursos: registro do usuário, login, pesquisa de produtos com filtro funcionalidade de carrinho e um fluxo de compras completo.",
         DESCRIPTION_BIBLE:
             "O projeto oferece a flexibilidade de explorar a Bíblia em uma variedade de idiomas e versões. Os usuários podem ajustar perfeitamente os tamanhos das fontes e alternar entre temas claros e escuros de acordo com sua preferência.",
+
+        DESCRIPTION_QUIZ:
+            "Quiz interativo de javascript feito com NextJS, ainda está na v1.0, e em breve vou adicionar mais funcionalidades para torna-lo cada vez mais completo",
     },
 
     ABOUT: {
